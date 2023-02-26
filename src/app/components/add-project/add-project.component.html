@@ -1,0 +1,164 @@
+<p>add-project works!</p>
+<!--
+<button
+  [ngClass]="{
+    btn: true,
+    'btn-right': true,
+    'btn-success': !mostrarForm,
+    'btn-danger': mostrarForm
+  }"
+  class="btn btn-primary"
+  (click)="toogleForm()"
+>
+  {{ mostrarForm ? "Cancelar" : "Agregar Proyecto" }}
+</button>
+
+<form
+  [formGroup]="form"
+  (ngSubmit)="onSubmit($event)"
+  *ngIf="mostrarForm"
+  class="m-3 mt-5"
+>
+  <div class="mb-3">
+    <label class="form-label" for="enombre">Nombre deL proyecto:</label>
+    <input
+      class="form-control"
+      type="text"
+      id="enombre"
+      placeholder="Nombre "
+      formControlName="nombre"
+    />
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="edescripcion"
+      >Descripcion del proyecto</label
+    >
+    <input
+      class="form-control"
+      type="text"
+      id="edescripcion"
+      placeholder="descripcion_proyecto"
+      formControlName="descripcion_proyecto"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label" for="eurl">Url del proyecto: </label>
+    <input
+      class="form-control"
+      type="text"
+      id="eurl"
+      placeholder="url del proyecto"
+      formControlName="url"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label" for="etipo_tecnologia"
+      >Tipo de tecnologias utilizadas:
+    </label>
+    <input
+      class="form-control"
+      type="text"
+      id="etipo_tecnologia"
+      placeholder="tipo_tecnologia utilizadas"
+      formControlName="tipo_tecnologia"
+    />
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+    
+  </button>
+</form>
+fINNNNNN DE TODO ESTO VAMOS AL MODAL-->
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+      <div class="mb-3">
+        <label class="form-label" for="enombre">Nombre deL proyecto:</label>
+        <input
+          class="form-control"
+          type="text"
+          id="enombre"
+          placeholder="Nombre "
+          formControlName="nombre"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="edescripcion"
+          >Descripcion del proyecto</label
+        >
+        <input
+          class="form-control"
+          type="text"
+          id="edescripcion"
+          placeholder="descripcion_proyecto"
+          formControlName="descripcion"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="eurl">Url del proyecto: </label>
+        <input
+          class="form-control"
+          type="text"
+          id="eurl"
+          placeholder="url del proyecto"
+          formControlName="url"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="etipo_tecnologia"
+          >Tipo de tecnologias utilizadas:
+        </label>
+        <input
+          class="form-control"
+          type="text"
+          id="etipo_tecnologia"
+          placeholder="tipo_tecnologia utilizadas"
+          formControlName="tipotec"
+        />
+      </div>
+
+      <button
+        type="submit"
+        class="btn btn-primary"
+        
+        (click)="modal.close()"
+      >
+        Agregar Proyecto
+      </button>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <!--
+      [disabled]="form.invalid"
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>-->
+  </div>
+</ng-template>
+<button
+  [ngClass]="{
+    btn: true,
+    'btn-right': true
+  }"
+  (click)="toogleForm()"
+  (click)="open(content)"
+>
+  <i class="fa fa-plus"></i>
+</button>
+<!--<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>-->
+
+<hr />
+
+<pre>{{ closeResult }}</pre>

@@ -1,0 +1,113 @@
+<header>
+  <nav class="nav">
+    <section class="logoap">
+      <img
+        class="pnglogoap"
+        src="../../../assets/images/argprog-logo.png"
+        alt=""
+      />
+    </section>
+    <div class="menu">
+      <ul class="menuul">
+        <li class="menuli">
+          <a style="text-decoration-line: none" href="/portfolio#header">
+            <a style="color: white">Quien Soy</a></a
+          >
+        </li>
+        <li class="menuli">
+          <a style="text-decoration-line: none" href="/portfolio#experiencia">
+            <a style="color: white">Experiencia</a></a
+          >
+        </li>
+        <li class="menuli">
+          <a style="text-decoration-line: none" href="/portfolio#educacion">
+            <a style="color: white">Educacion</a></a
+          >
+        </li>
+        <li class="menuli">
+          <a style="text-decoration-line: none" href="/portfolio#skill">
+            <a style="color: white">Skills</a></a
+          >
+        </li>
+        <li class="menuli">
+          <a style="text-decoration-line: none" href="/portfolio#projects">
+            <a style="color: white">Proyectos</a>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <section class="socialmedia">
+      <ul class="socialmediaul">
+        <li class="socialmediali">
+          <a href="https://github.com/mauriander/">
+            <i class="fab fa-github" style="color: white"></i>
+          </a>
+        </li>
+        <li class="socialmediali">
+          <a href="https://www.freecodecamp.org/mauriander">
+            <i class="fab fa-free-code-camp" style="color: white"></i>
+          </a>
+        </li>
+        <li class="socialmediali">
+          <a href="https://www.linkedin.com/in/mauricio-andermatten-a1b715bb">
+            <i class="fab fa-linkedin" style="color: white"></i>
+          </a>
+        </li>
+        <li class="socialmediali">
+          <a href="https://www.instagram.com/mauriander/">
+            <i class="fab fa-instagram" style="color: white"></i>
+          </a>
+        </li>
+        <li class="socialmediali">
+          <a href="https://www.facebook.com/mauri.ander">
+            <i class="fab fa-facebook" style="color: white"></i>
+          </a>
+        </li>
+
+        <li class="socialmediali"></li>
+      </ul>
+    </section>
+    <section class="botin">
+      <ul class="botinul">
+       <!--
+        <li class="botinli">
+          <form class="formLogin">
+            <button class="btn btn-ligth" type="submit">Login</button>
+          </form>
+        </li>
+        -->
+      </ul>
+      <li class="nav-item" *ngIf="!isLogged">
+        <button
+          type="button"
+          routerLink="/iniciar-sesion"
+          class="btn btn-primary"
+        >
+          Iniciar Sesión
+        </button>
+      </li>
+      <li class="nav-item" *ngIf="isLogged" (click)="onLogout()">
+        <button type="button" routerLink="/portfolio" class="btn btn-primary">
+          Cerrar Sesión
+        </button>
+      </li>
+    </section>
+  </nav>
+
+  <div class="card mat-carde" id="first-carde">
+    <div id="profile-background">
+      <img
+        src="assets/images/helly.jpg"
+        style="
+          border-radius: 32px;
+          height: auto;
+          width: 100%;
+          display: flex;
+          z-index: 1;
+          min-height: 350px;
+          max-height: 500px;
+        "
+      />
+    </div>
+  </div>
+</header>

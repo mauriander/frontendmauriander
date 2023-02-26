@@ -1,0 +1,49 @@
+<p>projects works!</p>
+<p>Funca</p>
+<div *ngIf="onSession">
+  <div *ngIf="onSessionpro">
+    <button
+      [ngClass]="{
+        btn: true,
+        'btn-right': true
+      }"
+      class="btn btn-primary"
+      (click)="clickme()"
+    >
+      <i class="fa fa-times"></i>
+    </button>
+  </div>
+
+  <div *ngIf="!onSessionpro">
+    <button class="btn btn-primary" (click)="clickme()">
+      <i class="fa fa-pen"></i>
+    </button>
+  </div>
+</div>
+<h2>Proyectos</h2>
+<div *ngIf="onSessionpro">
+  <app-add-project (onAddProject)="addProject($event)"> </app-add-project>
+</div>
+<div class="card mat-card2">
+  <div class="card-titles">
+    <!-- Es lo mismo que anuncia de drag and drop 
+  <app-project-item
+    *ngFor="let project of projects"
+    [project]="project"
+    (onDeleteProject)="deleteProject(project)"
+  ></app-project-item>-->
+
+    <p>Prubea de drag and cdkDropList</p>
+
+    <div cdkDropList class="e-list" (cdkDropListDropped)="drop2($event)">
+      <div class="e-box" *ngFor="let project of projects" cdkDrag>
+        <app-project-item
+          [project]="project"
+          (onEditProject)="editProject($event)"
+          (onDeleteProject)="deleteProject(project)"
+          [onSessionpro]="onSessionpro"
+        ></app-project-item>
+      </div>
+    </div>
+  </div>
+</div>

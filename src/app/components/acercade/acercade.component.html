@@ -1,0 +1,350 @@
+<!-- Content 2 -->
+
+<div class="card mat-card" id="first-card">
+  <div class="card-titles" id="first-card">
+    <div id="info" style="padding: 20px">
+      <div id="info-data">
+        <div *ngIf="onSession">
+          <div id="info-img" class="imagen-row">
+            <!--  <img
+            class="profile-image"
+            style="border-radius: 75%; width: 200px; height: 200 px"
+             src="assets/images/perfil.jpg" 
+             />-->
+            <div class="imagen-col">
+              <img
+                class="profile-image"
+                style="border-radius: 75%; width: 200px; height: 200 px"
+                src="{{ urlimage }}"
+                [src]="urlimage"
+              />
+            </div>
+            <!---->
+            <div
+              class="imagen-col"
+              *ngIf="!onSessionacerca2"
+              style="padding-left: 60px"
+            >
+              <div *ngIf="onSessionacerca"></div>
+              <button
+                [ngClass]="{
+                  btn: true,
+                  'btn-right': true,
+                  'btn-success': !mostrarForm,
+                  'btn-danger': mostrarForm
+                }"
+                class="btn btn-primary"
+                (click)="toogleForm()"
+              >
+                <i class="fa fa-pen"></i>
+              </button>
+            </div>
+            <div *ngIf="!onSessionacerca"></div>
+          </div>
+        </div>
+
+        <div *ngIf="!onSessionacerca">
+          <form
+            [formGroup]="form"
+            (ngSubmit)="onSubmitimg($event)"
+            *ngIf="mostrarForm"
+          >
+            <div class="mb-3">
+              <label class="form-label" for="eurlimage"></label>
+              <input
+                class="form-control"
+                type="text"
+                id="eurlimage"
+                #myNameElemgb
+                placeholder="{{ urlimage }}"
+                formControlName="urlimage"
+              />
+
+              <input
+                type="file"
+                name="fileupload"
+                class="btn btn-primary"
+                (change)="cargar_imagen($event)"
+                formControlName="urlimage"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">
+              Aceptar Modificacion de Imagen
+            </button>
+          </form>
+        </div>
+
+        <!-- input tipo file archivo....
+      
+          <input
+            #myNameElemgs
+            type="file"
+            name="fileupload"
+            class="btn btn-primary"
+            (change)="cargar_imagen($event)"
+            style="display: none"
+          />-->
+      </div>
+    </div>
+
+    <!--  Hasta llega el cuadro dialogo de foto-->
+
+    <button
+      [ngClass]="{
+        btn: true,
+        'btn-right': true
+      }"
+      class="btn btn-primary"
+      (click)="toogleForm()"
+      (click)="open(content)"
+    >
+      <i class="fa fa-pen"></i>
+    </button>
+
+    <div class="btn-edit" oneclick="cambiar_paraffo()">
+      <h4 style="font-size: 30px">{{ apellido }}</h4>
+      <h4 style="font-size: 30px">{{ nombre }}</h4>
+    </div>
+
+    <!-- Llegamos con el segundo editor con modal-->
+
+    <div>
+      <div id="info-fechanacimiento">
+        <h2>
+          {{ fechanac | date : "dd" }}/{{ fechanac | date : "MM" }}/{{
+            fechanac | date : "yyyy"
+          }}
+        </h2>
+      </div>
+
+      <div id="info-email">
+        <h2>{{ email }}</h2>
+      </div>
+      <div>
+        <div id="info-company">
+          <h2>
+            {{ developer }}
+          </h2>
+        </div>
+
+        <br />
+
+        <div id="info-ubicacion">
+          <span
+            ><h2>{{ ubicacionl }} - {{ ubicacionp }}</h2></span
+          >
+        </div>
+
+        <span><a href="{{ contact }}">Contactame</a></span>
+      </div>
+    </div>
+
+    <hr />
+
+    <h2>{{ descripcionacercade }}</h2>
+    <div *ngIf="onSession">
+      <div *ngIf="onSessionacerca">
+        <button class="btn btn-primary" (click)="clickme()">
+          <i class="fa fa-times"></i>
+        </button>
+      </div>
+      <div *ngIf="!onSessionacerca">
+        <button class="btn btn-primary" (click)="clickme()">
+          <i class="fa fa-pen"></i>
+        </button>
+      </div>
+      <form [formGroup]="forma" (ngSubmit)="onSubmit($event)">
+        <div class="mb-3">
+          <label class="form-label" for="edescripcion"></label>
+          <input
+            class="form-control"
+            type="text"
+            id="edescripcion"
+            formControlName="descripcion"
+            #myNameElem
+            size="flex"
+            style="display: none"
+            placeholder="dentro form"
+          />
+        </div>
+      </form>
+    </div>
+    
+    
+      <!--
+      <div>
+        <input
+          type="text"
+          name="descripcionacercade"
+          #myNameElem
+          placeholder="{{descripcionacercade}}"
+          class="form-control"
+          size="flex"
+          style="display: none"
+        />
+      </div>
+        -->
+
+      <!-- <button class="btn btn-light" type="button" (click)="clickme()">Editar</button>
+
+      input para el texto  tipo texto acercade
+      <input id="edit-acercade" type="text" oninput="myFunction2(this.value)" style="display:none" />-->
+    
+    <!-- input tipo file archivo....-->
+
+    <input
+      #myNameElemc
+      type="file"
+      name="fileupload"
+      class="btn btn-primary"
+      (change)="cargar_archivo($event)"
+      style="display: none"
+    />
+  </div>
+  
+  <button
+    class="btn btn-primary"
+    (click)="getValue($event)"
+    #myNameElemb
+    style="display: none"
+  >
+    Aceptar Modificacion de contenido
+  </button>
+  
+  <!--  mODAL -->
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+      <button
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      ></button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+        <div class="mb-3">
+          <label class="form-label" for="enombre">Nombre Completo:</label>
+          <input
+            class="form-control"
+            type="text"
+            id="enombre"
+            placeholder="{{ nombre }}"
+            formControlName="nombre"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="enombre">Apellido</label>
+          <input
+            class="form-control"
+            type="text"
+            id="eapellido"
+            placeholder="{{ apellido }}"
+            formControlName="apellido"
+          />
+        </div>
+        <!--
+      <div class="mb-3">
+        <label class="form-label" for="enombre">Foto de perfil:</label>
+        <input
+          #myNameElemgs
+          type="file"
+          name="fileupload2"
+          class="btn btn-primary"
+          (change)="cargar_imagen($event)"
+        />
+      </div>
+      
+      -->
+        <div class="mb-3">
+          <label class="form-label" for="efenac">Fecha de Nacimiento:</label>
+          <input
+            class="form-control"
+            type="date"
+            formControlName="fenac"
+            id="efenac"
+          />
+        </div>
+        <!--
+        <div class="mb-3">
+          <label class="form-label" for="eprovincia">Provincia:</label>
+          <input
+            class="form-control"
+            type="text"
+            formControlName="provincia"
+            id="eprovincia"
+            placeholder="Provincia "
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="elocalidad">Localidad:</label>
+          <input
+            class="form-control"
+            type="text"
+            formControlName="localidad"
+            id="elocalidad"
+            placeholder="Localidad "
+          />
+        </div>
+        
+        <div class="mb-3">
+          <select >
+          <option [ngValue]="null">Elegir Provincia</option>
+            <option *ngFor="let province of provincias" value="province" [ngValue]="province">
+            {{province.nombre}}
+          </option>
+        </select>
+        </div>
+        -->
+        <div class="mb-3">
+          <label class="form-label" for="elocalidad">Ubicacion:</label>
+          <select
+            class="form-control"
+            formControlName="localidad"
+            id="elocalidad"
+          >
+            <option [ngValue]="null">{{ localidad.nombre }}</option>
+            <option
+              *ngFor="let localidad of localidades"
+              value="localidad"
+              [ngValue]="localidad"
+            >
+              {{ localidad.nombre }}
+            </option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="eemail">Email:</label>
+          <input
+            class="form-control"
+            type="text"
+            formControlName="email"
+            id="eemail"
+            placeholder="nombre@example.com"
+          />
+        </div>
+        <!--[disabled]="form.invalid"-->
+        <button
+          type="submit"
+          class="btn btn-primary"
+          (click)="modal.close()"
+          [disabled]="form.invalid"
+        >
+          Agregar/Modificar Informacion Personal
+        </button>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <!--<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>-->
+    </div>
+  </ng-template>
+
+  <!--<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>-->
+
+  
+
+  <pre>{{ closeResult }}</pre>
+</div>

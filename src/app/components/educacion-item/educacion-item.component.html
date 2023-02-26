@@ -1,0 +1,133 @@
+<p>educacion-item works!</p>
+
+<div
+  class="educacion"
+  [ngStyle]="{ color: 'white' }"
+  (click)="onToggleEdu(educacion)"
+>
+  <!--  <fa-icon
+    [icon]="faTimes"
+    [ngStyle]="{ color: 'blue' }"
+   text="Editar"
+    (click)="onEditEdu(educacion)"
+-->
+  <div *ngIf="onSessionedu">
+    <button
+      [ngClass]="{
+        btn: true,
+        'btn-right': true
+      }"
+      class="btn btn-primary"
+      [ngStyle]="{ color: 'red' }"
+      text="Eliminar"
+      (click)="onDeleteEdu()"
+    >
+      <a> <i class="fa fa-times"></i></a>
+    </button>
+  </div>
+  <div>
+    <h1>Nombre {{ educacion?.nombre }}</h1>
+
+    <h2>Nivel {{ educacion?.nivel }}</h2>
+
+    <h3>Institucion {{ educacion?.institucion }}</h3>
+    <h3>Fecha Inicio: {{ educacion?.fechaini }} - {{ educacion?.fechafin }}</h3>
+  </div>
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+      <button
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      ></button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+        <div class="mb-3">
+          <label class="form-label" for="enombre">Nombre del Titulo:</label>
+          <input
+            class="form-control"
+            type="text"
+            id="enombre"
+            placeholder="{{ educacion.nombre }}"
+            formControlName="nombre"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="einstitucion">Institucion:</label>
+          <input
+            class="form-control"
+            type="text"
+            id="einstitucion"
+            placeholder="{{ educacion.institucion }}"
+            formControlName="institucion"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="enivel">Nivel:</label>
+          <input
+            class="form-control"
+            type="text"
+            placeholder="{{ educacion.nivel }}"
+            formControlName="nivel"
+            id="enivel"
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="efechaini">Fecha de Inicio:</label>
+          <input
+            class="form-control"
+            type="date"
+            formControlName="fechaini"
+            id="efechaini"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="efechafin"
+            >Fecha de finalizacion:
+          </label>
+          <input
+            class="form-control"
+            type="date"
+            formControlName="fechafin"
+            id="efechafin"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="modal.close()">
+          Editar Educacion
+        </button>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <!--<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>-->
+    </div>
+  </ng-template>
+
+  <div *ngIf="onSessionedu">
+    <button
+      [ngClass]="{
+        btn: true,
+        'btn-right': true
+      }"
+      class="btn btn-primary"
+      (click)="open(content)"
+    >
+      <a href="#" class="btn-right"><i class="fas fa-pen"></i></a>
+    </button>
+  </div>
+  <!--<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>-->
+
+  <pre>{{ closeResult }}</pre>
+
+  <!-- ></fa-icon>-->
+  <!--
+  <app-edit-educacion (onEditEdu)="editEducacion($event)"></app-edit-educacion>    -->
+</div>
+<br />
+<hr />
+<p>Fin educacion item</p>

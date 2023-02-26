@@ -1,0 +1,136 @@
+<p>experience-item works!</p>
+
+<div
+  class="experience"
+  [ngStyle]="{ color: 'white' }"
+  (click)="onToggleE(experiencia)"
+>
+  <div *ngIf="onSessionexp">
+    <button
+      [ngClass]="{
+        btn: true,
+        'btn-right': true
+      }"
+      class="btn btn-primary"
+      [ngStyle]="{ color: 'red' }"
+      text="Eliminar"
+      (click)="onDeleteEx()"
+    >
+      <a> <i class="fa fa-times"></i></a>
+    </button>
+  </div>
+  <div *ngIf="onSessionexp">
+    <button
+      [ngClass]="{
+        btn: true,
+        'btn-right': true
+      }"
+      class="btn btn-primary"
+      (click)="open(content)"
+    >
+      <a href="#" class="btn-right"><i class="fas fa-pen"></i></a>
+    </button>
+    <!--<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>-->
+  </div>
+  <div>
+    <h2>{{ experiencia?.nombre }}</h2>
+    <h2>Puesto: {{ experiencia?.descripcion }}</h2>
+
+    <h3>
+      Fecha Inicio: {{ experiencia?.fechaIni }} - {{ experiencia?.fechaFin }}
+    </h3>
+    <h3>{{ experiencia?.actual }}</h3>
+  </div>
+
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Editar experiencia</h4>
+      <button
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      ></button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+        <div class="mb-3">
+          <label class="form-label" for="enombre">Nombre de la empresa:</label>
+          <input
+            class="form-control"
+            type="text"
+            id="enombre"
+            placeholder="{{ experiencia.nombre }}"
+            formControlName="nombre"
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="edescripcion"
+            >Puesto desempeñado</label
+          >
+          <input
+            class="form-control"
+            type="text"
+            id="edescripcion"
+            placeholder="{{ experiencia.descripcion }}"
+            formControlName="descripcion"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="eactual">Trabajo Actual :</label>
+          <select
+            class="form-control"
+            id="eactual"
+            type="text"
+            formControlName="actual"
+            placeholder="Es tu trabajo actual"
+          >
+            <option selected>Seleciona una opcion</option>
+            <option>Es trabajo Actual</option>
+            <option>No es trabajo Actual</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="efechafin"
+            >Fecha de finalizacion:
+          </label>
+
+          <input
+            class="form-control"
+            type="date"
+            formControlName="fechaFin"
+            id="efechafin"
+          />
+        </div>
+        <!-- code to render a large video block-->
+
+        <div class="mb-3">
+          <label class="form-label" for="efechaini">Fecha de Inicio:</label>
+          <input
+            class="form-control"
+            type="date"
+            formControlName="fechaIni"
+            id="efechaini"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="modal.close()">
+          Editar Experiencia
+        </button>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <!--<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>-->
+    </div>
+  </ng-template>
+
+  <pre>{{ closeResult }}</pre>
+
+  <!--
+  <p>{{ experiencia.id }}</p>
+  
+  <p>{{ experiencia.persona }}</p>-->
+</div>
+
+<p>Fin experiencet</p>

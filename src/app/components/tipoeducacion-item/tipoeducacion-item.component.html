@@ -1,0 +1,26 @@
+<p>tipoeducacion-item works!</p>
+
+<div
+  class="tipoeducacion"
+  [ngClass]="{ nombre: tipoeducacion.nombre }"
+  [ngStyle]="{ color: 'green' }"
+  (click)="onToggleTE(tipoeducacion)"
+>
+  <h1>
+    <a href="#" class="btn-right" text="Editar" (click)="onEditTE(tipoeducacion)"
+      ><i class="fas fa-pen"></i>
+    </a>
+    <br />
+
+    <fa-icon
+      [icon]="faTimes"
+      [ngStyle]="{ color: 'red' }"
+      text="Eliminar"
+      (click)="onDeleteTE()"
+    ></fa-icon>
+    <p>Nivel {{ tipoeducacion.nombre }}</p>
+  </h1>
+  <h3>Fecha Inicio: {{ tipoeducacion.fechaini }} - {{ tipoeducacion.fechafin }}</h3>
+
+</div>
+<p>Fin tipoeducacion item</p>

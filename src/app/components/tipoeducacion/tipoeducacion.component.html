@@ -1,0 +1,32 @@
+<p>tipoeducacion works!</p>
+<div class="card mat-card">
+    <div class="card-titles">
+      <div class="btn-edit" (click)="clickme()">
+        <a href="#" class="btn-right"><i class="fas fa-pen"></i></a>
+  
+        <a href="#" class="btn-right"></a>
+      </div>
+      <h2>Tipo Educacion</h2>
+    </div>
+    
+    <app-add-tipoeducacion (onAddTipoEducacion)="addTipoEducacion($event)"> </app-add-tipoeducacion>
+  <!--
+    Es lo mismo que anuncia de drag and drop 
+    <app-tipoeducacion-item
+      *ngFor="let tipoeducacion of projects"
+      [tipoeducacion]="tipoeducacion"
+      (onDeleteProject)="deleteProject(tipoeducacion)"
+    ></app-tipoeducacion-item>-->
+  
+    <p>Prubea de drag and cdkDropList</p>
+  
+    <div cdkDropList class="e-list" (cdkDropListDropped)="drop2($event)">
+      <div class="e-box" *ngFor="let tipoeducacion of tipoeducaciones" cdkDrag>
+        <app-tipoeducacion-item
+          [tipoeducacion]="tipoeducacion"
+          (onDeleteTipoEducacion)="deleteTipoEducacion(tipoeducacion)"
+        ></app-tipoeducacion-item>
+      </div>
+    </div>
+  </div>
+  

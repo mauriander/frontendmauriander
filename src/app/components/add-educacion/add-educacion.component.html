@@ -1,0 +1,262 @@
+<p>add-educacion works!</p>
+
+<!--
+  <button
+  [ngClass]="{
+    btn: true,
+    'btn-right': true,
+    'btn-success': !mostrarForm,
+    'btn-danger': mostrarForm
+  }"
+  class="btn btn-primary"
+  (click)="toogleForm()"	
+  (click)="activeModal.close(false)"
+
+>
+  {{ mostrarForm ? "Cancelar" : "Agregar Educacion =)" }}
+</button>
+<div class="modal-header">
+	<h1 class="modal-title">Datos Experiencia</h1>
+	<i  class='boton-edicion far fa-window-close' 
+		style="font-size: 2.5rem;"
+		(click)="activeModal.close(false)"
+	></i>
+</div>
+<div class="modal-body">
+	<form [formGroup]="form" (ngSubmit)="onSubmit2()"
+    class="m-3 mt-5"
+  >
+  
+    <div class="mb-3">
+      <label class="form-label" for="enombre">Nombre del Titulo:</label>
+      <input
+        class="form-control"
+        type="text"
+        id="enombre"
+        placeholder="Nombre "
+        formControlName="nombre"
+      />
+    </div>
+  
+    <div class="mb-3">
+      <label class="form-label" for="einstitucion">Institucion:</label>
+      <input
+        class="form-control"
+        type="text"
+        id="einstitucion"
+        placeholder="Nombre de la Institucion "
+        formControlName="institucion"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="enivel">Nivel:</label>
+      <input
+        class="form-control"
+        type="text"
+        formControlName="nivel"
+        id="enivel"
+        placeholder="Nivel de estudio "
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="efechaini">Fecha de Inicio:</label>
+      <input
+        class="form-control"
+        type="date"
+        formControlName="fechaini"
+        id="efechaini"
+      />
+    </div>
+  
+    <div class="mb-3">
+      <label class="form-label" for="efechafin">Fecha de finalizacion: </label>
+      <input
+        class="form-control"
+        type="date"
+        formControlName="fechafin"
+        id="efechafin"
+      />
+    </div>
+  
+    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+      Agregar Educacion
+    </button>
+  </form>
+</div>
+<div class="modal-footer">
+</div>-->
+
+<!--
+<button
+[ngClass]="{
+  btn: true,
+  'btn-right': true,
+  'btn-success': !mostrarForm,
+  'btn-danger': mostrarForm
+}"
+class="btn btn-primary"
+(click)="toogleForm()"	
+>
+{{ mostrarForm ? "Cancelar" : "Agregar Educacion =)" }}
+</button>
+
+
+<form
+  [formGroup]="form"
+  (ngSubmit)="onSubmit($event)"
+  *ngIf="mostrarForm"
+  class="m-3 mt-5"
+>
+
+  <div class="mb-3">
+    <label class="form-label" for="enombre">Nombre del Titulo:</label>
+    <input
+      class="form-control"
+      type="text"
+      id="enombre"
+      placeholder="Nombre "
+      formControlName="nombre"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label" for="einstitucion">Institucion:</label>
+    <input
+      class="form-control"
+      type="text"
+      id="einstitucion"
+      placeholder="Nombre de la Institucion "
+      formControlName="institucion"
+    />
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="enivel">Nivel:</label>
+    <input
+      class="form-control"
+      type="text"
+      formControlName="nivel"
+      id="enivel"
+      placeholder="Nivel de estudio "
+    />
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="efechaini">Fecha de Inicio:</label>
+    <input
+      class="form-control"
+      type="date"
+      formControlName="fechaini"
+      id="efechaini"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label" for="efechafin">Fecha de finalizacion: </label>
+    <input
+      class="form-control"
+      type="date"
+      formControlName="fechafin"
+      id="efechafin"
+    />
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+    Agregar Educacion
+  </button>
+</form>-->
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+        <div class="mb-3">
+        <label class="form-label" for="enombre">Nombre del Titulo:</label>
+        <input
+          class="form-control"
+          type="text"
+          id="enombre"
+          placeholder="Nombre "
+          formControlName="nombre"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="einstitucion">Institucion:</label>
+        <input
+          class="form-control"
+          type="text"
+          id="einstitucion"
+          placeholder="Nombre de la Institucion "
+          formControlName="institucion"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="enivel">Nivel:</label>
+        <input
+          class="form-control"
+          type="text"
+          formControlName="nivel"
+          id="enivel"
+          placeholder="Nivel de estudio "
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="efechaini">Fecha de Inicio:</label>
+        <input
+          class="form-control"
+          type="date"
+          formControlName="fechaini"
+          id="efechaini"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="efechafin"
+          >Fecha de finalizacion:
+        </label>
+        <input
+          class="form-control"
+          type="date"
+          formControlName="fechafin"
+          id="efechafin"
+        />
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="form.invalid"
+        (click)="modal.close()"
+      >
+        Agregar Educacion
+      </button>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <!--<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>-->
+  </div>
+</ng-template>
+<button
+  [ngClass]="{
+    btn: true,
+    'btn-right': true
+  }"
+  class="btn btn-primary"
+  (click)="toogleForm()"
+  (click)="open(content)"
+>
+  <i class="fa fa-plus"></i>
+</button>
+<!--<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>-->
+
+
+<hr />
+
+<pre>{{ closeResult }}</pre>

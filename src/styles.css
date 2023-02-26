@@ -1,0 +1,179 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+   
+    font-family: 'Poppins';
+    src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+}
+
+
+body{
+    font-family:   -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ; 
+   
+    background: linear-gradient(0.65turn, #3f87a6, #ebf8e1, #3f7594);
+
+}
+
+.mat-card2{
+    content: '';
+    border-radius: 32px;
+    margin: 20px 20px;
+    padding: 20px;
+ 
+    background: #000;
+    display: grid;
+    place-items:center;
+    position: relative;
+    overflow: hidden;
+    min-height: 300px;
+  
+    
+}
+
+.mat-card2::before{
+    content: '';
+    height: 4000px;
+    width: 500px;
+    position: absolute;
+    background: linear-gradient(#00e5ff, #ebf8e1, #b400fb);
+    animation: animate 5s linear infinite;
+    }
+    @keyframes animate{
+        0% {transform: rotate(0deg);}
+        100% {transform: rotate(360deg);}
+    }
+
+    .mat-card2::after{
+        content: '';
+        position: absolute;
+        inset: 20px;
+      
+       background: #000;
+        border-radius: 32px;
+
+        }
+
+  
+
+
+.container{
+    max-width: 500px;
+    margin: 30px auto;
+    overflow: auto;
+    min-height: 300px;
+    border: 1px solid rgb(110, 156, 190);
+    padding: 30px;
+    border-radius: 25px;
+    
+}
+
+.btn {
+    display: inline-block;
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: inherit;
+}
+.btn:focus {
+    outline: none;
+}
+.btn:active {
+    transform: scale(0.98);
+}
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+.form-control {
+    margin: 20px 0;
+}
+
+.form-control label {
+    display: block;
+}
+
+.form-control input {
+    width: 100%;
+    height: 40px;
+    margin: 5px;
+    padding: 3px 7px;
+    font-size: 17px;
+}
+
+.form-control-check {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-control-check label {
+    flex: 1;
+}
+
+.form-control-check input {
+    flex: 2;
+    height: 20px;
+}
+
+
+
+.mat-card{
+    border-radius: 32px;
+    margin: 20px 20px;
+    padding: 20px;
+    border-color: blueviolet;
+    background: linear-gradient(#e66465, #9198e5);
+    
+}
+
+.mat-card#first-card{
+    padding: 0;
+    border-radius: 32px;
+    margin: 20px 20px;
+    padding: 20px;
+    border-color: blueviolet;
+    background: linear-gradient(#e66465, #9198e5);
+
+}
+div#profile-background{
+    
+    display: flex;
+    z-index: 1;
+}
+
+div#profile-background img{
+    width: 100%;
+    border-radius: 32px 32px 0 0;
+}
+/*  
+    h1{ color:black;}
+    Para componentes
+
+    */
+.profile-image{
+    position: absolute;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin-top: -150px;
+    z-index: 1;
+}
+
+div#info-actions{
+    display: flex;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; }

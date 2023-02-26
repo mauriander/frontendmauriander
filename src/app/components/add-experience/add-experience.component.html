@@ -1,0 +1,179 @@
+<p>add-experience works!</p>
+<!--
+<button
+  [ngClass]="{
+    btn: true,
+    'btn-right': true,
+    'btn-success': !mostrarForm,
+    'btn-danger': mostrarForm
+  }"
+  class="btn btn-primary"
+  (click)="toogleForm()"
+>
+  {{ mostrarForm ? "Cancelar" : "Agregar Experiencia" }}
+</button>
+
+
+  <form
+  [formGroup]="form"
+  (ngSubmit)="onSubmit($event)"
+  *ngIf="mostrarForm"
+  class="m-3 mt-5"
+>
+<div class="mb-3">
+    <label class="form-label" for="enombre">Nombre de la empresa:</label>
+    <input
+      class="form-control"
+      type="text"
+      id="enombre"
+      placeholder="Nombre "
+      formControlName="nombre"
+    />
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="edescripcion">Puesto desempeñado</label>
+    <input
+      class="form-control"
+      type="text"
+      id="edescripcion"
+      placeholder="descripcion "
+      formControlName="descripcion"
+    />
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="eactual">Trabajo Actual :</label>
+    <select class="form-control" id="eactual" type="text" formControlName="actual" placeholder="Es tu trabajo actual">
+      <option disabled selected> Seleciona una opcion</option>
+      <option >Actual</option>
+      <option >No es trabajo Actual</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label" for="efechafin">Fecha de finalizacion: </label>
+    <input
+      class="form-control"
+      type="date"
+      formControlName="fechaFin"
+      id="efechafin"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label" for="efechaini">Fecha de Inicio:</label>
+    <input
+      class="form-control"
+      type="date"
+      formControlName="fechaIni"
+      id="efechaini"
+    />
+  </div>
+
+
+
+  <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+    Agregar Experiencia
+  </button>
+</form>
+
+-->
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+      <div class="mb-3">
+        <label class="form-label" for="enombre">Nombre de la empresa:</label>
+        <input
+          class="form-control"
+          type="text"
+          id="enombre"
+          placeholder="Nombre "
+          formControlName="nombre"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="edescripcion">Puesto desempeñado</label>
+        <input
+          class="form-control"
+          type="text"
+          id="edescripcion"
+          placeholder="descripcion "
+          formControlName="descripcion"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="eactual">Trabajo Actual :</label>
+        <select
+          class="form-control"
+          id="eactual"
+          type="text"
+          formControlName="actual"
+          placeholder="Es tu trabajo actual"
+        >
+          <option selected>Seleciona una opcion</option>
+          <option>Es trabajo Actual</option>
+          <option>No es trabajo Actual</option>
+        </select>
+      </div>
+
+    
+
+      <div class="mb-3">
+        <label class="form-label" for="efechaini">Fecha de Inicio:</label>
+        <input
+          class="form-control"
+          type="date"
+          formControlName="fechaIni"
+          id="efechaini"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="efechafin"
+          >Fecha de finalizacion:
+        </label>
+        <input
+          class="form-control"
+          type="date"
+          formControlName="fechaFin"
+          id="efechafin"
+        />
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="form.invalid"
+        (click)="modal.close()"
+      >
+        Agregar Educacion
+      </button>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <!--<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>-->
+  </div>
+</ng-template>
+<button
+  [ngClass]="{
+    btn: true,
+    'btn-right': true
+  }"
+  class="btn btn-primary"
+  (click)="toogleForm()"
+  (click)="open(content)"
+>
+  <i class="fa fa-plus"></i>
+</button>
+<!--<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>-->
+
+<hr />
+
+<pre>{{ closeResult }}</pre>

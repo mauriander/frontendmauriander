@@ -1,0 +1,314 @@
+<p>header works!</p>
+
+<div class="card mat-card" id="first-card">
+  <!-- <div id="profile-background">
+    <img src="assets/images/helly.jpg" />
+    
+  </div>-->
+ 
+  <div id="info" style="padding: 20px">
+    <div id="info-img">
+      <img
+        class="profile-image"
+        style="border-radius: 75%; width: 200px; height: 200 px"
+        src="assets/images/perfil.jpg"
+      />
+      
+
+  
+
+
+    </div>
+<p></p>
+    <div id="info-data">
+      <h1>{{apellido}} {{nombre}}</h1>
+      <h2>{{email}}</h2>
+      <h2>{{fenac}}</h2>
+      <h2>{{nombreLocalidad}} -</h2>
+      
+      <h2>{{urlimage}}</h2>
+      <h2>{{id}}</h2>
+      <div>
+        <div class="btn-edit" oneclick="cambiar_paraffo()">
+          
+   
+        </div>
+
+        <div id="info-company">Desarrollador en Rio</div>
+        <div id="info-contact">
+          <span> (Argentina) - Huancavelica (Peru)</span>
+         
+        </div>
+        <span><a href="#">Informacion de contacto</a></span>
+      </div>
+      <!--
+      <ul id="info-details">
+        <li>
+          <a href="#">
+            <img src="" />
+            <h2>Rio salado</h2>
+          </a>
+        </li>
+
+        <li>
+          <a href="#">
+            <img src="" />
+            <h2>Megasoft</h2>
+          </a>
+        </li>
+      </ul>
+      -->
+    </div>
+    <!--   <div id="info-actions">
+      <button type="button" class="btn btn-light">Tengo interes en:</button>
+      <button type="button" class="btn btn-light">Añadir una seccion</button>
+      <button type="button" class="btn btn-light">Más...</button>
+    </div>-->
+  </div>
+  <div *ngIf="onSession">
+    <!-- <button (click)="clickme()"
+      >
+      <i class="fa fa-pen"></i>
+      </button>
+  
+  
+      <div class="btn-edit" (click)="clickme()">
+        -->
+
+    <div *ngIf="onSessionheader">
+      <button class="btn btn-primary" (click)="clickme()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <div *ngIf="!onSessionheader">
+      <button class="btn btn-primary" (click)="clickme()">
+        <i class="fa fa-pen"></i>
+      </button>
+    </div>
+  </div>
+  <!-- Content 
+<input type="file" id="file1" onchange="showFile(this)">
+-->
+  <script>
+    /*
+onechange: modificar html
+oneclick: hizo click
+onmouseout: mueve el puntero sobe el elemento
+onekeydown: presiona una tecla
+onload:el navegador se termino de cargar
+*/
+    function cambiar_parrafo() {
+      document.getElementById("edit-acercade").style.display = "block";
+      let texto = document.getElementById("text-acercade").innerText;
+      console.log(texto);
+
+      //console.log("Perro");
+    }
+
+    function myFunction2(valor) {
+      document.getElementById("text-acercade").innerText = valor;
+    }
+
+    function logMessage(message) {
+      console.log(message + "<br>");
+    }
+
+    //controla si presiono enter
+    let textarea = document.getElementById("edit-acercade");
+    textarea.addEventListener("keyup", (e) => {
+      logMessage('Key "${e.key}" released [event: keyup]');
+      if (e.key == "Enter") {
+        document.getElementById("edit-acercade").style.display = "none";
+      }
+    });
+
+    //carga contenido y lo muestra
+    function showFile(input) {
+      let file = input.files[0];
+      alert(`file name: ${file.name}`);
+      alert(`Last modified: ${file.lastModified}`);
+
+      let reader = new FileReader();
+      reader.readAsText(file);
+      reader.onload = function () {
+        console.log(reader.result);
+        document.getElementById("text-acercade").innerText = reader.result;
+      };
+      reader.onerror = function () {
+        console.log(reader.error);
+      };
+    }
+    function foo() {
+      undefined = "2";
+      console.log(undefined * 2);
+      var newDiv = document.createElement("div");
+      var newContent = document.createTextNode("hOLA jUAN CARLOS");
+      newDiv.appendChild(newContent);
+      var currentDiv = document.getElementById("1");
+      document.body.insertBefore(newDiv, currentDiv);
+    }
+    foo();
+  </script>
+</div>
+
+<button
+      [ngClass]="{
+        btn: true,
+        'btn-right': true
+      }"
+      class="btn btn-primary"
+      
+      (click)="open(content)"
+    >
+      <i class="fa fa-plus"></i>
+    </button>
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <!--<form [formGroup]="formPersona" (ngSubmit)="onSubmit($event)">-->
+    <form [formGroup]="formPersona" (ngSubmit)="onSubmit($event)">
+      <div class="mb-3">
+        <label class="form-label" for="enombre">Nombre Completo:</label>
+        <input
+          class="form-control"
+          type="text"
+          id="enombre"
+          placeholder="Nombre "
+          formControlName="nombre"
+        />
+      </div>
+      <!--
+      <div class="mb-3">
+        <label class="form-label" for="enombre">Foto de perfil:</label>
+        <input
+          #myNameElemgs
+          type="file"
+          name="fileupload2"
+          class="btn btn-primary"
+          (change)="cargar_imagen($event)"
+        />
+      </div>
+      
+
+      <div class="mb-3">
+        <label for="dateOfBirth">Fecha de nacimiento</label>
+        <div class="input-group">
+          <input
+            id="dateOfBirth"
+            class="form-control"
+            placeholder="yyyy-mm-dd"
+            name="dp"
+            ngbDatepicker
+            #dp="ngbDatepicker"
+          />
+          <button
+            class="btn btn-outline-secondary calendar"
+            (click)="dp.toggle()"
+            type="button"
+          ></button>
+        </div>
+      </div>
+      -->
+      <div class="mb-3">
+        <label class="form-label" for="efechanac">Fecha de Nacimiento:</label>
+        <input
+          class="form-control"
+          type="date"
+          formControlName="fenac"
+          id="efechanac"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="edeveloper">Developer:</label>
+        <input
+          class="form-control"
+          type="text"
+          
+        
+        />
+
+        
+        <div 
+        >
+              
+
+      </div>
+        <div 
+        select
+        *ngFor="let localidad of localidades">
+        <option value="value">{{localidad}}</option>   
+              
+
+      </div>
+        <div 
+        select
+        *ngFor="let provincia of provincias">
+        <option value="value"></option>   
+              
+
+      </div>
+      </div>
+
+    
+      <div class="mb-3">
+        <label class="form-label" for="epais">Pais:</label>
+        <input
+          class="form-control"
+          type="text"
+          formControlName="localidad"
+          id="epais"
+          placeholder=""
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="eprovincia">Provinvia:</label>
+        <input
+          class="form-control"
+          type="text"
+          formControlName="localidad"
+          id="eprovincia"
+          placeholder="Provincia "
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="eemail">Email:</label>
+        <input
+          class="form-control"
+          type="text"
+          formControlName="email"
+          id="eemail"
+          placeholder="nombre@example.com"
+        />
+      </div>
+
+      <button
+        type="submit"
+        class="btn btn-primary"
+       
+        (click)="modal.close()"
+      >
+        Agregar/Modificar Informacion Personal
+      </button>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <!--<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>-->
+  </div>
+</ng-template>
+
+<!--<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>-->
+
+<hr />
+
+<pre>{{ closeResult }}</pre>

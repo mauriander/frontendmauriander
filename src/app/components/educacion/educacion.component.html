@@ -1,0 +1,66 @@
+<p>educacion works!</p>
+<div class="card-titles">
+  <div *ngIf="onSession">
+    <!-- <button (click)="clickme()"
+    >
+    <i class="fa fa-pen"></i>
+    </button>
+
+
+    <div class="btn-edit" (click)="clickme()">
+      -->
+
+    <div *ngIf="onSessionedu">
+      <button class="btn btn-primary" (click)="clickme()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <div *ngIf="!onSessionedu">
+      <button class="btn btn-primary" (click)="clickme()">
+        <i class="fa fa-pen"></i>
+      </button>
+    </div>
+  </div>
+
+  <h2>Educacion</h2>
+</div>
+
+
+
+
+
+
+
+
+<div *ngIf="onSessionedu">
+  <app-add-educacion
+    (onAddEducacion)="addEducacion($event)"
+  ></app-add-educacion>
+</div>
+<div class="card mat-card2">
+  <!--
+    <app-add-tipoeducacion (onAddTipoEducacion)="addTipoEducacion($event)"> </app-add-tipoeducacion>
+       <app-tipoeducacion></app-tipoeducacion>
+ 
+    Es lo mismo que anuncia de drag and drop 
+    <app-tipoeducacion-item
+      *ngFor="let tipoeducacion of projects"
+      [tipoeducacion]="tipoeducacion"
+      (onDeleteProject)="deleteProject(tipoeducacion)"
+    ></app-tipoeducacion-item> 
+  
+  
+    (onEditarEducacion)="editEducacion(educacion)"
+  -->
+
+  <div cdkDropList class="e-list" (cdkDropListDropped)="drop2($event)">
+    <div class="e-box" *ngFor="let educacion of educaciones" cdkDrag>
+      <app-educacion-item
+        [educacion]="educacion"
+        (onEditarEducacion)="editEducacion($event)"
+        (onDeleteEducacion)="deleteEducacion(educacion)"
+        [onSessionedu]="onSessionedu"
+      ></app-educacion-item>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<p>add-tipoeducacion works!</p>
+<button class="btn btn-primary" (click)="toogleForm()">
+    {{ mostrarFormTE ? "Cancelar" : "Agregar Tipo de educacion" }}
+  </button>
+  
+  <form
+	#formSkill
+	[formGroup]="form"
+	(ngSubmit)="onSubmit($event)"
+	*ngIf="mostrarFormTE"
+	class="m-3 mt-5"
+>
+	<div class="mb-3">
+		<label class="form-label" for="nombre">Nombre del Titulo:</label>
+		<input
+			class="form-control"
+			type="text"
+			formControlName="nombre"
+			id="nombre"
+			placeholder="Nombre "
+			ngbTooltip="Entre 3 y 10 caracteres"
+		/>
+	</div>
+	<div class="mb-3">
+		<label class="form-label" for="fechaini">Fecha de inicio:</label>
+		<input
+			class="form-control"
+			type="date"
+			formControlName="fechaini"
+			id="fechaini"
+
+		/>
+	</div>
+	<div class="mb-3">
+		<label class="form-label" for="fechafin">Fecha de finalizacion:</label>
+		<input
+			class="form-control"
+			type="date"
+			formControlName="fechafin"
+			id="fechafin"
+
+		/>
+	</div>
+
+ 
+
+	<button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+		<i class="fa fa-plus"></i>
+	</button>
+    
+  </form>

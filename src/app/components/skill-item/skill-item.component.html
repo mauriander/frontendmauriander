@@ -1,0 +1,115 @@
+
+
+  <div class="skill" (click)="onToggleS(skill)">
+    <h1 style="text-align: left">
+      <div *ngIf="onSessionski">
+        <button
+          [ngClass]="{
+            btn: true,
+            'btn-right': true
+          }"
+          class="btn btn-primary"
+          (click)="open(content)"
+        >
+          <a href="#" class="btn-right"><i class="fas fa-pen"></i></a>
+        </button>
+        
+          <button
+          [ngClass]="{
+            btn: true,
+            'btn-right': true
+          }"
+          class="btn btn-primary"
+            [ngStyle]="{ color: 'red' }"
+          text="Eliminar"
+          (click)="onDeleteS()"
+         
+        
+        > 
+          <a > <i class="fa fa-times"></i></a>
+          </button>
+        
+
+        <!--<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>-->
+      </div>
+    </h1>
+
+    <div id="cirgrid">
+      <article id="s1" class="circle">
+        <h2 style="text-align: center">{{ skill?.nombre }}</h2>
+        <circle-progress
+        circle-progress class="responsive"
+          [percent]="skill.valor"
+          [radius]="100"
+          [outerStrokeWidth]="16"
+          [innerStrokeWidth]="8"
+          [outerStrokeColor]="'#78C000'"
+          [innerStrokeColor]="'#C7E596'"
+          [animation]="true"
+          [animationDuration]="900"
+          >
+        ></circle-progress>
+      </article>
+    </div>
+
+
+    <ng-template #content let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+        <button
+          type="button"
+          class="btn-close"
+          aria-label="Close"
+          (click)="modal.dismiss('Cross click')"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+          <div class="mb-3">
+            <label class="form-label" for="enombre">Nombre de Skill:</label>
+            <input
+              class="form-control"
+              type="text"
+              id="enombre"
+              placeholder="{{ skill.nombre }}"
+              formControlName="nombre"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label" for="evalor">Valor de skill:</label>
+            <input
+              class="form-control"
+              type="number"
+              id="evalor"
+              placeholder="{{ skill.valor }}"
+              formControlName="valor"
+            />
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="form.invalid"
+            (click)="modal.close()"
+          >
+            Agregar Skill
+          </button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <!--<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>-->
+      </div>
+    </ng-template>
+  
+    <pre>{{ closeResult }}</pre>
+
+ 
+  </div>
+
+
+<!--    Para insertar
+    [title]=skill.nombre
+        [showTitle]="true"
+        [showSubtitle]="false"
+        -->

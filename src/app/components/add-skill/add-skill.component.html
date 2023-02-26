@@ -1,0 +1,103 @@
+<p>add-skill works!</p>
+<!--
+<button
+		class="btn btn-primary"
+	(click)="toogleForm()"
+>
+	{{ mostrarForm ? "Cancelar" : "Agregar Skill" }}
+</button>
+
+<form class="add-form" (ngSubmit)="onSubmit($event)" *ngIf="mostrarForm">
+	*ngIf="mostrarForm"
+	<div class="form-control">
+	  <label for="text">Nombre de la habilidad </label>
+	  <input
+		type="text"
+		name="nombre"
+		id="nombre"
+		placeholder="nombre"
+		[(ngModel)]="nombre"
+	  />
+	</div>
+  
+	<div class="form-control">
+	  <label for="number">Nivel de la habilidad</label>
+	  <input
+		type="number"
+		name="valor"
+		id="valor"
+		placeholder="valor"
+		ngbTooltip="Valor entre 1 y 100"
+		[(ngModel)]="valor"
+		
+	  />
+	</div>
+	<input type="submit" value="Agregar Skill" class="btn btn-block" />
+	<input type="submit" value="Agregar Skill" class="btn btn-block"[disabled]="validForm" />
+	
+</form>
+
+-->
+
+
+
+
+<ng-template #content let-modal>
+	<div class="modal-header">
+	  <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+	  <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+	  <form [formGroup]="form"  (ngSubmit)="onSubmit($event)" >
+		  <div class="mb-3">
+		  <label class="form-label" for="enombre">Nombre de Skill:</label>
+		  <input
+			class="form-control"
+			type="text"
+			id="enombre"
+			placeholder="Nombre "
+			formControlName="nombre"
+		  />
+		</div>
+	  
+		<div class="mb-3">
+		  <label class="form-label" for="evalor">Valor de skill:</label>
+		  <input
+			class="form-control"
+			type="number"
+			id="evalor"
+			placeholder=""
+			placeholder="Valor de Skill"
+			formControlName="valor"
+		  />
+		</div>
+  
+	  
+	
+	  <button type="submit" class="btn btn-primary" [disabled]="form.invalid" (click)="modal.close()">
+		<i class="fa fa-plus"></i>
+	  </button>
+	  </form>
+	</div>
+	<div class="modal-footer">
+	
+	  <!--<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>-->
+	</div>
+  </ng-template>
+  <button
+[ngClass]="{
+  btn: true,
+  'btn-right': true
+}"
+  (click)="toogleForm()"
+  (click)="open(content)"	
+  >
+  <i class="fa fa-plus"></i>
+  </button>
+   <!--<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>-->
+  
+  <hr>
+  
+  <pre>{{ closeResult }}</pre>
+  
+

@@ -1,0 +1,93 @@
+.cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  }
+  
+  .cdk-drag-placeholder {
+    opacity: 0;
+  }
+  
+  .cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  .e-box {
+    background-color: rgb(42, 104, 133);
+    margin: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+
+    border-radius: 32px;
+    margin: 20px 20px;
+   
+  
+    border: solid 1px #ccc;
+    color: rgb(42, 104, 133);
+    cursor: move;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    border-radius: 4px;
+    position: relative;
+    z-index: 1;
+    
+    
+    transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+                0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  }
+  
+  .e-box:active {
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  }
+
+  .e-list {
+    max-width: 100%;
+    border-radius: 36px;
+    min-height: 60px;
+    display: flex;
+    background-color: rgb(42, 104, 133);
+    border-radius: 4px;
+    overflow: hidden;
+    min-height: 60px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background: transparent;
+    align-items: center;
+    justify-content:center;
+
+
+
+  }
+
+  h2{
+    padding-left: 32px;
+    font-size: xx-large;    
+    animation: flow 10s ease-in-out infinite;
+    background: -webkit-linear-gradient(-60deg, #904e95,#941a9c,#e73c7e,#ee7752);
+    background-size: 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+  }
+
+  @keyframes flow{
+    0% {
+      background-position: 0 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0 50%;
+    }
+  }

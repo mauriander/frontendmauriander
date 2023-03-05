@@ -64,6 +64,7 @@
               "namedChunks": true
             }
           },
+          
           "defaultConfiguration": "production"
         },
         "serve": {
@@ -105,4 +106,5 @@
     }
   },
   "defaultProject": "proyecto"
+  
 }

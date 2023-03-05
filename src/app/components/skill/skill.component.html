@@ -1,12 +1,11 @@
-<p>skill works!</p>
-
-<h2>Skills</h2>
+<h2> </h2>
+<h2 style="padding-top: 32px;font-weight: bolder;">Skills</h2>
 <div class="card mat-card">
   <div id="Titulos"></div>
 
   <section id="skills">
     <div class="card-titles">
-      <div *ngIf="onSession">
+      <div style="text-align: right;padding-right: 32px;" *ngIf="onSession">
         <div *ngIf="onSessionski">
           <button
             [ngClass]="{
@@ -19,7 +18,7 @@
             <i class="fa fa-times"></i>
           </button>
         </div>
-        <div *ngIf="!onSessionski">
+        <div style="text-align: right;padding-right: 32px;" *ngIf="!onSessionski">
           <button class="btn btn-primary" (click)="clickme()">
             <i class="fa fa-pen"></i>
           </button>

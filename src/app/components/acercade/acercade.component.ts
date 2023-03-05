@@ -26,6 +26,7 @@ export class AcercadeComponent implements OnInit {
   @Input() onSession!: boolean;
   @Input() onSessionacerca!: boolean;
   @Input() onSessionacerca2!: boolean;
+  @Input() onSessionacerca3!: boolean;
   @Input() persona!: Persona;
   @Output() onTogglePersona: EventEmitter<Persona> = new EventEmitter();
 contact:String="";
@@ -47,6 +48,7 @@ contact:String="";
   provincias:Provincia[]=[];
 fenac: Date = new Date();
 idpersona:any;
+
 idacercade:any;
 descripcionacercade:String="";
   
@@ -156,7 +158,7 @@ descripcionacercade:String="";
       this.myNameElemgb.nativeElement.style.display = 'none';
      // this.myNameElemgs.nativeElement.style.display = 'none';
     } else {
-      this.onSessionacerca2 = true;
+      this.onSessionacerca2= true;
       /*   this.myNameElem.nativeElement.style.display = 'block';
         this.myNameElemb.nativeElement.style.display = 'block';
         this.myNameElemc.nativeElement.style.display = 'block'; */
@@ -320,6 +322,8 @@ descripcionacercade:String="";
     console.log('Acerca de '+this.idacercade+ ' ' + this.descripcionacercade)
   }
 
+
+  //Acerca de INICIO
   verAcercades(){
     this.acercadeService.verAcercades().subscribe((res)=>{
       this.acercades=res;
@@ -355,7 +359,10 @@ verLocalidades(){
 this.localidadService.verLocalidades().subscribe((res)=>{
   this.localidades=res;});
 }
+//Acerca de FIN
  
+
+//PERSONA INICIO
   getPersona() {
     this.servicio.getPersona().subscribe((res) => {
       // console.log(res);
@@ -407,6 +414,7 @@ this.localidadService.verLocalidades().subscribe((res)=>{
     this.mostrarForm = !this.mostrarForm;
   }
 
+
   onToggleP(persona: Persona){
     this.onTogglePersona.emit(persona);
      this.perso=persona;
@@ -439,12 +447,14 @@ this.localidadService.verLocalidades().subscribe((res)=>{
     console.log("valores del formulario "+ this.form.value);
     this.form.patchValue({
       id:this.idpersona,
-     });
+      urlimage:this.urlimage,
 
+     });
+/*
      this.form.patchValue({
       urlimage:this.urlimage,
      });
-   
+   */
      alert(this.form.value.id+"id  y nombre localidad"+this.form.value.localidad.nombre);
     
     if (this.form.valid) {
@@ -472,19 +482,22 @@ this.localidadService.verLocalidades().subscribe((res)=>{
       apellido:this.apellido,
       email:this.email,
       
-      fecac:this.fenac,
-      localida:this.localidad,
+      fenac:this.fenac,
+      localidad:this.localidad,
      });
 
    
-     alert(this.form.valid)
+     alert("eS VALIDO EL FORMATO PARA ENTRAR AL IF"+ this.form.valid + this.form.value.urlimage)
+    
     
     if (this.form.valid) {
-      console.log(this.form.value.urlimage);
+
+      console.log( "muestro direccion "+this.form.value.urlimage);
       
-      //alert(this.form.value);
+      
       this.submittedimg = true;
       this.editPersona(this.form.value);
+      alert(this.form.value.urlimage);
       this.mostrarForm = false;
     } else {
       alert('form no valido   ');

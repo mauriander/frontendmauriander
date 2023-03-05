@@ -1,7 +1,10 @@
-<p>experiencia works!</p>
+<h2 style="padding-top: 32px; font-weight:bolder;">Experiencia</h2>
+<div class="card mat-card">
+  <section id="experiencia">
 <div class="card-titles">
+  
   <div *ngIf="onSession">
-    <div *ngIf="onSessionexp">
+    <div style="text-align: right;padding-right: 32px;" *ngIf="onSessionexp">
       <button
         [ngClass]="{
           btn: true,
@@ -13,13 +16,14 @@
         <i class="fa fa-times"></i>
       </button>
     </div>
-    <div *ngIf="!onSessionexp">
+    <div style="text-align: right;padding-right: 32px;" *ngIf="!onSessionexp">
+
       <button class="btn btn-primary" (click)="clickme()">
         <i class="fa fa-pen"></i>
       </button>
     </div>
   </div>
-  <h2>Experiencia</h2>
+
   <div *ngIf="onSessionexp">
     <app-add-experience
       (onAddExperience)="addExperience($event)"
@@ -48,4 +52,6 @@
       ></app-experience-item>
     </div>
   </div>
+</div>
+</section>
 </div>

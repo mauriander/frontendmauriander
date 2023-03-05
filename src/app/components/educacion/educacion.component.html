@@ -1,6 +1,9 @@
-<p>educacion works!</p>
-<div class="card-titles">
-  <div *ngIf="onSession">
+<h2 style="padding-top: 32px; font-weight: bolder;">Educacion </h2>
+<div class="card mat-card">
+
+  <div id="Titulos"></div>
+
+  <div  *ngIf="onSession">
     <!-- <button (click)="clickme()"
     >
     <i class="fa fa-pen"></i>
@@ -9,21 +12,22 @@
 
     <div class="btn-edit" (click)="clickme()">
       -->
-
-    <div *ngIf="onSessionedu">
+      
+    <div  style="text-align: right;padding-right: 32px;" *ngIf="onSessionedu">
       <button class="btn btn-primary" (click)="clickme()">
         <i class="fa fa-times"></i>
       </button>
     </div>
-    <div *ngIf="!onSessionedu">
+    <div  style="text-align: right;padding-right: 32px;" *ngIf="!onSessionedu">
       <button class="btn btn-primary" (click)="clickme()">
         <i class="fa fa-pen"></i>
       </button>
     </div>
+ 
   </div>
 
-  <h2>Educacion</h2>
-</div>
+  
+
 
 
 
@@ -63,4 +67,5 @@
       ></app-educacion-item>
     </div>
   </div>
+</div>
 </div>

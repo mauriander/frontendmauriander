@@ -19,13 +19,13 @@
                 [src]="urlimage"
               />
             </div>
-            <!---->
+
             <div
               class="imagen-col"
               *ngIf="!onSessionacerca2"
               style="padding-left: 60px"
             >
-              <div *ngIf="onSessionacerca"></div>
+              <div *ngIf="onSessionacerca2"></div>
               <button
                 [ngClass]="{
                   btn: true,
@@ -39,11 +39,16 @@
                 <i class="fa fa-pen"></i>
               </button>
             </div>
+
             <div *ngIf="!onSessionacerca"></div>
+
+
           </div>
         </div>
 
-        <div *ngIf="!onSessionacerca">
+
+        
+        <div *ngIf="!onSessionacerca2">
           <form
             [formGroup]="form"
             (ngSubmit)="onSubmitimg($event)"
@@ -73,6 +78,7 @@
             </button>
           </form>
         </div>
+        
 
         <!-- input tipo file archivo....
       
@@ -89,21 +95,23 @@
 
     <!--  Hasta llega el cuadro dialogo de foto-->
 
-    <button
-      [ngClass]="{
-        btn: true,
-        'btn-right': true
-      }"
-      class="btn btn-primary"
-      (click)="toogleForm()"
-      (click)="open(content)"
-    >
-      <i class="fa fa-pen"></i>
-    </button>
+    <!-- INICIO 2 BOTON ACERCA DE-->
+    <div style="text-align: right; padding-right: 32px">
+      <button
+        [ngClass]="{
+          btn: true,
+          'btn-right': true
+        }"
+        class="btn btn-primary"      
+        (click)="open(content)"      >
+        <i class="fa fa-pen"></i>
+      </button>
+    </div>
+    <!--FIN 2 BOTON ACERCA DE-->
 
     <div class="btn-edit" oneclick="cambiar_paraffo()">
-      <h4 style="font-size: 30px">{{ apellido }}</h4>
-      <h4 style="font-size: 30px">{{ nombre }}</h4>
+      <h4 style="font-size: 30px">{{ apellido }} {{ nombre }}</h4>
+      
     </div>
 
     <!-- Llegamos con el segundo editor con modal-->
@@ -111,8 +119,8 @@
     <div>
       <div id="info-fechanacimiento">
         <h2>
-          {{ fechanac | date : "dd" }}/{{ fechanac | date : "MM" }}/{{
-            fechanac | date : "yyyy"
+          {{ fenac | date : "dd" }}/{{ fenac | date : "MM" }}/{{
+            fenac | date : "yyyy"
           }}
         </h2>
       </div>
@@ -127,22 +135,22 @@
           </h2>
         </div>
 
-        <br />
-
+        
         <div id="info-ubicacion">
           <span
             ><h2>{{ ubicacionl }} - {{ ubicacionp }}</h2></span
           >
         </div>
 
-        <span><a href="{{ contact }}">Contactame</a></span>
+        <span><a href="{{ contact }}"  >Contactame</a></span>
       </div>
     </div>
 
     <hr />
 
-    <h2>{{ descripcionacercade }}</h2>
-    <div *ngIf="onSession">
+    
+    <!-- TERCER BOTON ACERCA DE-->
+    <div style="text-align: right; padding-right: 32px" *ngIf="onSession">
       <div *ngIf="onSessionacerca">
         <button class="btn btn-primary" (click)="clickme()">
           <i class="fa fa-times"></i>
@@ -169,9 +177,10 @@
         </div>
       </form>
     </div>
-    
-    
-      <!--
+   
+    <!-- FIN TERCER BOTON ACERCA DE-->
+    <h2>{{ descripcionacercade }}</h2>
+    <!--
       <div>
         <input
           type="text"
@@ -185,11 +194,11 @@
       </div>
         -->
 
-      <!-- <button class="btn btn-light" type="button" (click)="clickme()">Editar</button>
+    <!-- <button class="btn btn-light" type="button" (click)="clickme()">Editar</button>
 
       input para el texto  tipo texto acercade
       <input id="edit-acercade" type="text" oninput="myFunction2(this.value)" style="display:none" />-->
-    
+
     <!-- input tipo file archivo....-->
 
     <input
@@ -201,7 +210,7 @@
       style="display: none"
     />
   </div>
-  
+
   <button
     class="btn btn-primary"
     (click)="getValue($event)"
@@ -210,7 +219,7 @@
   >
     Aceptar Modificacion de contenido
   </button>
-  
+
   <!--  mODAL -->
   <ng-template #content let-modal>
     <div class="modal-header">
@@ -343,8 +352,6 @@
   </ng-template>
 
   <!--<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>-->
-
-  
 
   <pre>{{ closeResult }}</pre>
 </div>

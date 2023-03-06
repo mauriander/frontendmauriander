@@ -36,6 +36,7 @@
         </li>
       </ul>
     </div>
+
     <section class="socialmedia">
       <ul class="socialmediaul">
         <li class="socialmediali">
@@ -43,16 +44,19 @@
             <i class="fab fa-github" style="color: white"></i>
           </a>
         </li>
+        <!--
         <li class="socialmediali">
           <a href="https://www.freecodecamp.org/mauriander">
             <i class="fab fa-free-code-camp" style="color: white"></i>
           </a>
         </li>
+        -->
         <li class="socialmediali">
           <a href="https://www.linkedin.com/in/mauricio-andermatten-a1b715bb">
             <i class="fab fa-linkedin" style="color: white"></i>
           </a>
         </li>
+         <!--
         <li class="socialmediali">
           <a href="https://www.instagram.com/mauriander/">
             <i class="fab fa-instagram" style="color: white"></i>
@@ -63,20 +67,13 @@
             <i class="fab fa-facebook" style="color: white"></i>
           </a>
         </li>
+         -->
 
         <li class="socialmediali"></li>
       </ul>
     </section>
     <section class="botin">
-      <ul class="botinul">
-       <!--
-        <li class="botinli">
-          <form class="formLogin">
-            <button class="btn btn-ligth" type="submit">Login</button>
-          </form>
-        </li>
-        -->
-      </ul>
+       
       <li class="nav-item" *ngIf="!isLogged">
         <button
           type="button"
@@ -88,8 +85,7 @@
       </li>
       <li class="nav-item" *ngIf="isLogged" (click)="onLogout()">
         <button type="button" routerLink="/portfolio" class="btn btn-primary">
-          Cerrar Sesión
-        </button>
+          Cerrar Sesión de {{nombre}}       </button>
       </li>
     </section>
   </nav>

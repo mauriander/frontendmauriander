@@ -19,7 +19,8 @@
                 [src]="urlimage"
               />
             </div>
-
+            
+            <div *ngIf="frol">
             <div
               class="imagen-col"
               *ngIf="!onSessionacerca2"
@@ -40,7 +41,10 @@
               </button>
             </div>
 
-            <div *ngIf="!onSessionacerca"></div>
+            <div *ngIf="!onSessionacerca2">
+              
+            </div>
+          </div>
 
 
           </div>
@@ -95,6 +99,12 @@
 
     <!--  Hasta llega el cuadro dialogo de foto-->
 
+    <div class="contenedor-flexbox">
+      <div class="btn-edit" oneclick="cambiar_paraffo()">
+        <h4 style="font-size: 30px; font-weight: bolder;">{{ apellido }} {{ nombre }}</h4>
+        
+      </div>
+      <div *ngIf="frol">
     <!-- INICIO 2 BOTON ACERCA DE-->
     <div style="text-align: right; padding-right: 32px">
       <button
@@ -108,11 +118,9 @@
       </button>
     </div>
     <!--FIN 2 BOTON ACERCA DE-->
-
-    <div class="btn-edit" oneclick="cambiar_paraffo()">
-      <h4 style="font-size: 30px">{{ apellido }} {{ nombre }}</h4>
-      
-    </div>
+  </div>
+    
+  </div>
 
     <!-- Llegamos con el segundo editor con modal-->
 
@@ -142,13 +150,16 @@
           >
         </div>
 
-        <span><a href="{{ contact }}"  >Contactame</a></span>
+        <span ><a style="font-size: 20px; color:deeppink;" href="{{ contact }}"  >Contactame</a></span>
       </div>
     </div>
 
     <hr />
 
-    
+    <div class="contenedor-flexbox">
+      <h2>{{ descripcionacercade }}</h2>
+
+      <div *ngIf="frol">
     <!-- TERCER BOTON ACERCA DE-->
     <div style="text-align: right; padding-right: 32px" *ngIf="onSession">
       <div *ngIf="onSessionacerca">
@@ -177,9 +188,11 @@
         </div>
       </form>
     </div>
+  </div>
+  </div>
    
     <!-- FIN TERCER BOTON ACERCA DE-->
-    <h2>{{ descripcionacercade }}</h2>
+    
     <!--
       <div>
         <input
@@ -223,7 +236,7 @@
   <!--  mODAL -->
   <ng-template #content let-modal>
     <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+      <h4 class="modal-title" id="modal-basic-title">Añadir Acerca de</h4>
       <button
         type="button"
         class="btn-close"

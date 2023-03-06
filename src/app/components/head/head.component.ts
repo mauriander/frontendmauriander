@@ -11,6 +11,7 @@ export class HeadComponent implements OnInit {
   miPortfolio:any;
   @Input()onSession!:boolean;
   isLogged=false;
+  nombre: String='';
 
   constructor(private datosPortfolio: PortfolioService,private router: Router, private tokenService: TokenService) { }
 
@@ -30,7 +31,7 @@ export class HeadComponent implements OnInit {
       this.isLogged=false;
      // this.onSession=false;
     }
-
+    this.nombre=this.tokenService.getUserName();
       
   }
 

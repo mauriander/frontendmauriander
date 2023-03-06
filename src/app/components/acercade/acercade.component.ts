@@ -14,6 +14,7 @@ import { LocalidadService } from 'src/app/services/localidad.service';
 
 import { PersonaService } from 'src/app/services/persona.service';
 import { ProvinciaService } from 'src/app/services/provincia.service';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-acercade',
@@ -21,6 +22,13 @@ import { ProvinciaService } from 'src/app/services/provincia.service';
   styleUrls: ['./acercade.component.css'],
 })
 export class AcercadeComponent implements OnInit {
+  roles: Array<string>=[];
+  rol: String="";
+  rol2: String="";
+  frol!:boolean;
+
+
+
   //persona: Persona | undefined;
   mostrarForm: boolean = false;
   @Input() onSession!: boolean;
@@ -120,7 +128,7 @@ descripcionacercade:String="";
     this.form.patchValue({
       urlimage:this.urlimage,
      });
-     alert(this.form.value.nombre);
+   //  alert(this.form.value.nombre);
      this.editPersona(this.form.value);
   }
 
@@ -273,7 +281,7 @@ descripcionacercade:String="";
     private servicio: PersonaService,
     private localidadService: LocalidadService,
     private provinciaService:ProvinciaService,
-    private acercadeService:AcercadeService
+    private acercadeService:AcercadeService,private tokenService:TokenService
   ) {
     this.form = this.formBuilder.group({
       id: [0],
@@ -318,6 +326,12 @@ descripcionacercade:String="";
     this.verLocalidades();
     this.verProvincias();
     this.verAcercades();  
+    this.roles=this.tokenService.getAuthorities();   
+    this.rol=this.roles[0];//user
+    this.rol2=this.roles[1];//admin
+  if(this.rol2=="ROLE_ADMIN"){
+    this.frol=true; }
+    else{this.frol=false;} 
    // this.buscarAcercade(this.idacercade);
     console.log('Acerca de '+this.idacercade+ ' ' + this.descripcionacercade)
   }
@@ -423,7 +437,7 @@ this.localidadService.verLocalidades().subscribe((res)=>{
 
 
   editPersona(persona: Persona) {
-    alert('Hize push qui' + persona.nombre);
+    //alert('Hize push qui' + persona.nombre);
     this.servicio.editPersona(persona).subscribe((editpersona) => {
       this.personas.push(editpersona);
       this.ngOnInit();
@@ -432,7 +446,7 @@ this.localidadService.verLocalidades().subscribe((res)=>{
   }
 
   editImagen(persona: Persona) {
-    alert('Hize push qui' + persona.nombre);
+    //alert('Hize push qui' + persona.nombre);
     this.servicio.editPersona(persona).subscribe((editpersona) => {
       this.personas.push(editpersona);
       this.ngOnInit();
@@ -442,7 +456,7 @@ this.localidadService.verLocalidades().subscribe((res)=>{
   // onClick(){  this.btnClick.emit();}
 
   onSubmit(event: Event) {
-    alert('Entro al editar persona');
+    //alert('Entro al editar persona');
     this.submitted = true;
     console.log("valores del formulario "+ this.form.value);
     this.form.patchValue({
@@ -455,20 +469,20 @@ this.localidadService.verLocalidades().subscribe((res)=>{
       urlimage:this.urlimage,
      });
    */
-     alert(this.form.value.id+"id  y nombre localidad"+this.form.value.localidad.nombre);
+     //alert(this.form.value.id+"id  y nombre localidad"+this.form.value.localidad.nombre);
     
     if (this.form.valid) {
       console.log(this.form.value);
 
-      alert(this.form.value);
+     // alert(this.form.value);
       this.submitted = true;
       this.editPersona(this.form.value);
       this.mostrarForm = false;
-      alert('VALIDO id');
+     // alert('VALIDO id');
       //console.log(this.form.value);
     } else {
       alert('form no valido   ');
-      alert(this.form.value);
+     // alert(this.form.value);
     }
   }
   onSubmitimg(event: Event) {
@@ -487,7 +501,7 @@ this.localidadService.verLocalidades().subscribe((res)=>{
      });
 
    
-     alert("eS VALIDO EL FORMATO PARA ENTRAR AL IF"+ this.form.valid + this.form.value.urlimage)
+     //alert("eS VALIDO EL FORMATO PARA ENTRAR AL IF"+ this.form.valid + this.form.value.urlimage)
     
     
     if (this.form.valid) {
@@ -497,7 +511,7 @@ this.localidadService.verLocalidades().subscribe((res)=>{
       
       this.submittedimg = true;
       this.editPersona(this.form.value);
-      alert(this.form.value.urlimage);
+    //  alert(this.form.value.urlimage);
       this.mostrarForm = false;
     } else {
       alert('form no valido   ');

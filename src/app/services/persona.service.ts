@@ -37,7 +37,7 @@ export class PersonaService {
       }
 
    editPersona  (persona: Persona):Observable<Persona> {
-        alert("Llego a servicio de editar proyecto"+ persona.id + "y su nombre "+persona.nombre + "su nombre de nacimiento "+ persona.fenac);
+       // alert("Llego a servicio de editar proyecto"+ persona.id + "y su nombre "+persona.nombre + "su nombre de nacimiento "+ persona.fenac);
         const y=persona.id;
       return this.http.put<Persona>(this.URL2+"editar/persona/"+y,persona,httpOptions);}
   

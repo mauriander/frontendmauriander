@@ -38,12 +38,12 @@ export class EducacionService {
       return this.http.delete<Educacion>(url); 
 }
   editEducacion(educacion: Educacion):Observable<Educacion> {
-    alert("Llego a servicio de editar education"+ educacion.id + "y su nombre "+educacion.nombre);
+    //alert("Llego a servicio de editar education"+ educacion.id + "y su nombre "+educacion.nombre);
 const y=educacion.id;
   return this.http.put<Educacion>(this.apiUrl+"editar/education/"+y,educacion,httpOptions);}
 
  edit2Educacion(educacion: Educacion):Observable<Educacion> {
-   alert("Llego a servicio de editar 2 educacion"+ educacion.id + "y su nombre "+educacion.nombre);
+   //alert("Llego a servicio de editar 2 educacion"+ educacion.id + "y su nombre "+educacion.nombre);
   
   return this.http.put<Educacion>(this.apiUrl+"edit/education/",educacion,httpOptions);
 }

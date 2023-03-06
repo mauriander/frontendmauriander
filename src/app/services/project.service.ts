@@ -34,10 +34,11 @@ private apiUrl='https://backendmauriander.onrender.com/';
       const url=this.apiUrl+"eliminar/proyecto/"+y;
       return this.http.delete<Proyecto>(url);
 
+
     }
 
     editProject(project: Proyecto):Observable<Proyecto> {
-      alert("Llego a servicio de editar proyecto"+ project.id + "y su nombre "+project.nombre);
+   //   alert("Llego a servicio de editar proyecto"+ project.id + "y su nombre "+project.nombre);
   const y=project.id;
     return this.http.put<Proyecto>(this.apiUrl+"editar/proyecto/"+y,project,httpOptions);}
 

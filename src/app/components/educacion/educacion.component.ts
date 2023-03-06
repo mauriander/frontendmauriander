@@ -6,6 +6,7 @@ import { Educacion } from 'src/app/model/educacion.model';
 import { AddSkillComponent } from '../add-skill/add-skill.component';
 import { AddEducacionComponent } from '../add-educacion/add-educacion.component';
 import { Router } from '@angular/router';
+import { TokenService } from 'src/app/services/token.service';
 
 
 @Component({
@@ -15,13 +16,25 @@ import { Router } from '@angular/router';
 })
 export class EducacionComponent implements OnInit {
   //@ViewChild("addEducacion") addEducacio!: AddEducacionComponent;
+  roles: Array<string>=[];
+  rol: String="";
+  rol2: String="";
+  frol!:boolean;
+
   @Input()onSession!:boolean;
   onSessionedu!:boolean;
   educaciones: Educacion[]=[];
-  constructor(private educacionService: EducacionService,private ruta:Router) {}
+  constructor(private educacionService: EducacionService,private ruta:Router,private tokenService:TokenService) {}
   @Output() btnClick= new EventEmitter;
 
-  ngOnInit(): void {this.getEducaciones(); this.onSessionedu=false; }
+  ngOnInit(): void {this.getEducaciones(); this.onSessionedu=false;
+    this.roles=this.tokenService.getAuthorities();
+    this.rol=this.roles[0];//user
+    this.rol2=this.roles[1];//admin
+    if(this.rol2=="ROLE_ADMIN"){
+      this.frol=true; }
+      else{this.frol=false;} 
+    }
 
   getEducaciones(){
   this.educacionService
@@ -33,7 +46,7 @@ export class EducacionComponent implements OnInit {
 }
 
   clickme():void{
-    alert("Entramos en edicion"); 
+   //alert ("Entramos en edicion"); 
    if(this.onSessionedu===true)
    {this.onSessionedu=false;}
    else{this.onSessionedu=true;}
@@ -68,7 +81,7 @@ export class EducacionComponent implements OnInit {
   this.educacionService.editEducacion(education).subscribe((educacionEditada) => {
     this.buscaEdu(educacionEditada);
   });  */
-  alert("Hize push qui"+education.nombre);
+  //alert("Hize push qui"+education.nombre);
   this.educacionService
      .editEducacion(education)
     .subscribe((editeducacion) => {this.educaciones.push(editeducacion);  });
@@ -89,6 +102,7 @@ export class EducacionComponent implements OnInit {
           return t.id !== educacion.id;
         }))
     );
+    alert("Se elimino la Educacion "+ educacion.nombre);
   }
 /*
   private buscaEdu(educacion: Educacion) {

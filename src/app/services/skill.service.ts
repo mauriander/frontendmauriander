@@ -33,6 +33,8 @@ return this.http.post<Skill>(this.apiUrl+"new/skill",skill,httpOptions);
     //return this.http.delete(this.URL + "eliminar/skill/" + y);
     
     const urle=this.apiUrl+"eliminar/skill/"+y;
+       
+
     return this.http.delete<Skill>(urle); 
   }
 

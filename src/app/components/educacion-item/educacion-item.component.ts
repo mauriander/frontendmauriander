@@ -47,6 +47,7 @@ export class EducacionItemComponent implements OnInit {
   
   onDeleteEdu():void{
     //alert("deleteado"+project.text);
+    
     this.onDeleteEducacion.emit(this.educacion);
 
   }
@@ -118,7 +119,7 @@ export class EducacionItemComponent implements OnInit {
     this.form.patchValue({
      id:this.educ.id,
     });
-    alert("VALIDO id"+this.form.value.id+ "nombre que necesito que cambie formulario"+this.form.value.nombre);
+    //alert("VALIDO id"+this.form.value.id+ "nombre que necesito que cambie formulario"+this.form.value.nombre);
       console.log(this.form.value);
       //this.form.patchValue({id:this.id});
      //  event.preventDefault;

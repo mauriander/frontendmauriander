@@ -44,7 +44,7 @@ export class AcercadeService {
           }
 
     editarAcercade(project: Acercade):Observable<Acercade> {
-      alert("Llego a servicio de editar acercade"+ project.id);
+     // alert("Llego a servicio de editar acercade"+ project.id);
   const y=project.id;
     return this.http.put<Acercade>(this.apiUrl+"editar/acercade/"+y,project,httpOptions);}
 

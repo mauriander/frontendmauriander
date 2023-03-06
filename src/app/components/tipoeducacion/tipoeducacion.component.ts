@@ -28,7 +28,8 @@ export class TipoeducacionComponent implements OnInit {
 }
 
   clickme() {
-    alert("Entramos en edicion"); }
+    //alert("Entramos en edicion"); 
+  }
 
 
   addTipoEducacion(tipoeducacion: TipoEducacion) {

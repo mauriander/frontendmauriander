@@ -1,6 +1,6 @@
 <div class="contenedorLogin">
  
-  <div class="text-center">
+  <div class="text-center" style="padding-top: 32px;">
     <h1>Iniciar sesión</h1>
   </div>
   <section class="auth-form loginForm">
@@ -152,8 +152,10 @@
       <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>-->
       </div>
     </ng-template>
+    <hr />
     <div class="d-flex">
-    <button
+   <!--
+      <button
       [ngClass]="{
         btn: true,
         'btn-right': true
@@ -162,10 +164,13 @@
     >
       RESGISTRATE AQUI
     </button>
+    -->
     <br>
+   
     <button class="btn btn-outline-light btn-lg" (click)="open(content)">RESGISTRATE</button>
+  
   </div>
-    <hr />
+    
 
     <pre>{{ closeResult }}</pre>
 

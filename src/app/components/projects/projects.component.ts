@@ -5,7 +5,7 @@ import { ProjectService } from 'src/app/services/project.service';
 import { NgIf } from '@angular/common';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import { Proyecto } from 'src/app/model/proyecto.model';
-
+import { TokenService } from 'src/app/services/token.service';
 
  
 
@@ -16,14 +16,23 @@ import { Proyecto } from 'src/app/model/proyecto.model';
 })
 export class ProjectsComponent implements OnInit {
 	//@ViewChild("addproject") addProject!:AddProjectComponent
-  
+  roles: Array<string>=[];
+  rol: String="";
+  rol2: String="";
+  frol!:boolean;
   projects: Proyecto[]=[];
-  constructor(private projectService: ProjectService) {}
+  constructor(private projectService: ProjectService,private tokenService:TokenService) {}
   @Output() btnClick= new EventEmitter;
   @Input()onSession!:boolean;
   onSessionpro!:boolean;
 
-  ngOnInit(): void {this.getProjects(); }
+  ngOnInit(): void {this.getProjects();
+    this.roles=this.tokenService.getAuthorities();   
+    this.rol=this.roles[0];//user
+    this.rol2=this.roles[1];//admin
+  if(this.rol2=="ROLE_ADMIN"){
+    this.frol=true; }
+    else{this.frol=false;} }
 
   getProjects(){
     this.projectService
@@ -72,10 +81,11 @@ this.skillSevice
           return t.id !== project.id;
         }))
     );
+    alert("Se elimino el Proyecto "+ project.nombre);
   }
 
   editProject(proyecto: Proyecto) {
-    alert("Hize push qui"+proyecto.nombre);
+   // alert("Hize push qui"+proyecto.nombre);
   this.projectService
      .editProject(proyecto)
     .subscribe((editproyecto) => {this.projects.push(editproyecto);   });

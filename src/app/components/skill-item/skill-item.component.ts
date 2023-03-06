@@ -56,7 +56,8 @@ export class SkillItemComponent implements OnInit {
 
   onDeleteS():void {
     //alert("deleteado"+project.text);
-    this.onDeleteSkill.emit(this.skill);
+      this.onDeleteSkill.emit(this.skill);
+    
   }
   /*
   onEditarS(skill: Skill){
@@ -102,12 +103,12 @@ this.sk=skill;
     this.form.patchValue({
       persona: { id: this.perso.id },
     });
-    alert(
+   /* alert(
       'VALIDO id' +
         this.form.value.id +
         'nombre que necesito que cambie formulario' +
         this.form.value.nombre
-    );
+    );*/
     console.log(this.form.value);
     //this.form.patchValue({id:this.id});
     //  event.preventDefault;

@@ -144,7 +144,7 @@ verLocalidades(){
   }
 
   editPersona(persona: Persona) {
-    alert("Hize push qui"+persona.nombre);
+   // alert("Hize push qui"+persona.nombre);
   this.servicioHeader
      .editPersona(persona)
     .subscribe((editpersona) => {this.personas.push(editpersona);   this.ngOnInit();});

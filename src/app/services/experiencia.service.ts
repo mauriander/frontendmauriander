@@ -36,7 +36,7 @@ private apiUrl='https://backendmauriander.onrender.com/';
 
     }
     editExperience(experiencia: Experiencia):Observable<Experiencia> {
-      alert("Llego a servicio de editar educacion"+ experiencia.id + "y su trabjo es  "+experiencia.actual);
+    //  alert("Llego a servicio de editar educacion"+ experiencia.id + "y su trabjo es  "+experiencia.actual);
   const y=experiencia.id;
     return this.http.put<Experiencia>(this.apiUrl+"editar/experiencia/"+y,experiencia);}
 

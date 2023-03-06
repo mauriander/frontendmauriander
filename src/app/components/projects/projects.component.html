@@ -1,58 +1,65 @@
-<h2 style="padding-top: 32px;font-weight: bolder;">Proyectos</h2>
-<div class="card mat-card">
-
-
-
-  <section id="proyecto">
-
-  
-<div *ngIf="onSession">
-  <div style="text-align: right;padding-right: 32px;"  *ngIf="onSessionpro">
-    <button
-      [ngClass]="{
-        btn: true,
-        'btn-right': true
-      }"
-      class="btn btn-primary"
-      (click)="clickme()"
-    >
-      <i class="fa fa-times"></i>
-    </button>
-  </div>
-
-  <div style="text-align: right;padding-right: 32px;" *ngIf="!onSessionpro">
-    <button class="btn btn-primary" (click)="clickme()">
-      <i class="fa fa-pen"></i>
-    </button>
-  </div>
-</div>
-
-<div  *ngIf="onSessionpro">
-  <app-add-project (onAddProject)="addProject($event)"> </app-add-project>
-</div>
-
-<div class="card mat-card2">
+<section id="proyecto">
   <div class="card-titles">
-    <!-- Es lo mismo que anuncia de drag and drop 
+    <div class="contenedor-flexbox">
+      <h2 style="padding-top: 32px; font-weight: bolder">Proyectos</h2>
+      
+      <div *ngIf="frol">
+      <div *ngIf="onSession">
+        <div
+          style="text-align: right; padding-right: 32px"
+          *ngIf="onSessionpro"
+        >
+          <button
+            [ngClass]="{
+              btn: true,
+              'btn-right': true
+            }"
+            class="btn btn-primary"
+            (click)="clickme()"
+          >
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+
+        <div
+          style="text-align: right; padding-right: 32px"
+          *ngIf="!onSessionpro"
+        >
+          <button class="btn btn-primary" (click)="clickme()">
+            <i class="fa fa-pen"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+    <div *ngIf="onSessionpro">
+      <app-add-project (onAddProject)="addProject($event)"> </app-add-project>
+    </div>
+  </div>
+
+  <div class="card mat-card2">
+    <div class="card-titles">
+      <!-- Es lo mismo que anuncia de drag and drop 
   <app-project-item
     *ngFor="let project of projects"
     [project]="project"
     (onDeleteProject)="deleteProject(project)"
   ></app-project-item>-->
 
-    <p>Prubea de drag and cdkDropList</p>
+      <p>Prubea de drag and cdkDropList</p>
 
-    <div cdkDropList class="e-list" (cdkDropListDropped)="drop2($event)">
-      <div class="e-box"  *ngFor="let project of projects" cdkDrag>
-        <app-project-item
-          [project]="project"
-          (onEditProject)="editProject($event)"
-          (onDeleteProject)="deleteProject(project)"
-          [onSessionpro]="onSessionpro"
-        ></app-project-item>
+      <div cdkDropList class="e-list" (cdkDropListDropped)="drop2($event)">
+        <div class="e-box" *ngFor="let project of projects" cdkDrag>
+          <app-project-item
+            [project]="project"
+            (onEditProject)="editProject($event)"
+            (onDeleteProject)="deleteProject(project)"
+            [onSessionpro]="onSessionpro"
+          ></app-project-item>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </section>
-</div>

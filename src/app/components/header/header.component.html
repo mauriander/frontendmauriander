@@ -125,8 +125,8 @@ onload:el navegador se termino de cargar
     //carga contenido y lo muestra
     function showFile(input) {
       let file = input.files[0];
-      alert(`file name: ${file.name}`);
-      alert(`Last modified: ${file.lastModified}`);
+     // alert(`file name: ${file.name}`);
+     // alert(`Last modified: ${file.lastModified}`);
 
       let reader = new FileReader();
       reader.readAsText(file);
@@ -164,7 +164,7 @@ onload:el navegador se termino de cargar
     </button>
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <h4 class="modal-title" id="modal-basic-title">Añadir Perfil</h4>
     <button
       type="button"
       class="btn-close"

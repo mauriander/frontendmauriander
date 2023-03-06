@@ -1,30 +1,37 @@
-<h2> </h2>
-<h2 style="padding-top: 32px;font-weight: bolder;">Skills</h2>
-<div class="card mat-card">
-  <div id="Titulos"></div>
-
-  <section id="skills">
-    <div class="card-titles">
-      <div style="text-align: right;padding-right: 32px;" *ngIf="onSession">
-        <div *ngIf="onSessionski">
-          <button
-            [ngClass]="{
-              btn: true,
-              'btn-right': true
-            }"
-            class="btn btn-primary"
-            (click)="clickme()"
+<section id="skills">
+  <div class="card-titles">
+    <div class="contenedor-flexbox">
+      <h2 style="padding-top: 32px; font-weight: bolder">Skills</h2>
+    
+      <div *ngIf="frol">
+        <div style="text-align: right; padding-right: 32px" *ngIf="onSession">
+          <div *ngIf="onSessionski">
+            <button
+              [ngClass]="{
+                btn: true,
+                'btn-right': true
+              }"
+              class="btn btn-primary"
+              (click)="clickme()"
+            >
+              <i class="fa fa-times"></i>
+            </button>
+          </div>
+          <div
+            style="text-align: right; padding-right: 32px"
+            *ngIf="!onSessionski"
           >
-            <i class="fa fa-times"></i>
-          </button>
-        </div>
-        <div style="text-align: right;padding-right: 32px;" *ngIf="!onSessionski">
-          <button class="btn btn-primary" (click)="clickme()">
-            <i class="fa fa-pen"></i>
-          </button>
+            <button class="btn btn-primary" (click)="clickme()">
+              <i class="fa fa-pen"></i>
+            </button>
+          </div>
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="card mat-card">
+    <div id="Titulos"></div>
 
     <!--
     <button type="button" class="btn btn-light">Añadir Skill</button>
@@ -51,9 +58,8 @@
       cdkDropListOrientation="horizontal"
       class="e-list"
       (cdkDropListDropped)="drop($event)"
-      
     >
-      <div class="e-box" *ngFor="let skill of skills" cdkDrag >
+      <div class="e-box" *ngFor="let skill of skills" cdkDrag>
         <app-skill-item
           [skill]="skill"
           (onEditarSkill)="editarSkill($event)"
@@ -79,5 +85,5 @@
     </article>
     <article id="s5" class="circle"></article>
     <article id="s6" class="circle"></article>-->
-  </section>
-</div>
+  </div>
+</section>

@@ -1,38 +1,50 @@
-<h2 style="padding-top: 32px; font-weight:bolder;">Experiencia</h2>
-<div class="card mat-card">
+
+
   <section id="experiencia">
-<div class="card-titles">
-  
-  <div *ngIf="onSession">
-    <div style="text-align: right;padding-right: 32px;" *ngIf="onSessionexp">
-      <button
-        [ngClass]="{
-          btn: true,
-          'btn-right': true
-        }"
-        class="btn btn-primary"
-        (click)="clickme()"
-      >
-        <i class="fa fa-times"></i>
-      </button>
+   
+    <div class="card-titles">
+     <div class="contenedor-flexbox">
+      <h2 style="padding-top: 32px; font-weight: bolder">Experiencia</h2>
+   
+      <div *ngIf="frol">
+      <div *ngIf="onSession">
+        <div
+          style="text-align: right; padding-right: 32px"
+          *ngIf="onSessionexp"
+        >
+          <button
+            [ngClass]="{
+              btn: true,
+              'btn-right': true
+            }"
+            class="btn btn-primary"
+            (click)="clickme()"
+          >
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+        <div
+          style="text-align: right; padding-right: 32px"
+          *ngIf="!onSessionexp"
+        >
+          <button class="btn btn-primary" (click)="clickme()">
+            <i class="fa fa-pen"></i>
+          </button>
+        </div>
+      </div>
     </div>
-    <div style="text-align: right;padding-right: 32px;" *ngIf="!onSessionexp">
-
-      <button class="btn btn-primary" (click)="clickme()">
-        <i class="fa fa-pen"></i>
-      </button>
+    
     </div>
-  </div>
 
-  <div *ngIf="onSessionexp">
-    <app-add-experience
-      (onAddExperience)="addExperience($event)"
-    ></app-add-experience>
-  </div>
-</div>
-<div class="card mat-card2">
-  <div id="experience"></div>
-  <!--
+      <div *ngIf="onSessionexp">
+        <app-add-experience
+          (onAddExperience)="addExperience($event)"
+        ></app-add-experience>
+      </div>
+    </div>
+    <div class="card mat-card2">
+      <div id="experience"></div>
+      <!--
   Es lo mismo que anuncia de drag and drop 
   <app-project-item
     *ngFor="let project of projects"
@@ -40,18 +52,18 @@
     (onDeleteProject)="deleteProject(project)"
   ></app-project-item>-->
 
-  <p>Prubea de drag and cdkDropList</p>
+      <p>Prubea de drag and cdkDropList</p>
 
-  <div cdkDropList class="e-list" (cdkDropListDropped)="drop2($event)">
-    <div class="e-box" *ngFor="let experience of experiences" cdkDrag>
-      <app-experience-item
-        [experiencia]="experience"
-        (onEditExperience)="editExperience($event)"
-        (onDeleteExperience)="deleteExperience(experience)"
-        [onSessionexp]="onSessionexp"
-      ></app-experience-item>
+      <div cdkDropList class="e-list" (cdkDropListDropped)="drop2($event)">
+        <div class="e-box" *ngFor="let experience of experiences" cdkDrag>
+          <app-experience-item
+            [experiencia]="experience"
+            (onEditExperience)="editExperience($event)"
+            (onDeleteExperience)="deleteExperience(experience)"
+            [onSessionexp]="onSessionexp"
+          ></app-experience-item>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-</section>
-</div>
+  </section>
+

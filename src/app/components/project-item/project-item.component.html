@@ -1,4 +1,4 @@
-<p>project-item works!</p>
+
 
 <div
   class="project"
@@ -6,7 +6,7 @@
   [ngStyle]="{ color: 'white' }"
   (click)="onToggle(project)"
 >
-  <h1>
+  
     <div *ngIf="onSessionpro">
       <button
         [ngClass]="{
@@ -21,7 +21,7 @@
         <a> <i class="fa fa-times"></i></a>
       </button>
     </div>
-    <div>
+    <div >
       <h2>{{ project?.nombre }}</h2>
       <!--
     <h3>Codigo de proyecto: {{ project.id }}</h3>-->
@@ -29,14 +29,11 @@
   
       <h3>Tecnologias Utilizadas: {{ project?.tipotec }}</h3>
       <h3>URL del proyecto</h3>
-      <h3>
-      <span
-        ><a href="{{ project?.url }}">{{ project?.url }}</a></span
-      ></h3>
+      <h3 ><a style="color:blanchedalmond" href="{{ project?.url }}">{{ project?.url }}</a></h3>
     </div>
     <ng-template #content let-modal>
       <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+        <h4 class="modal-title" id="modal-basic-title">Editar Proyecto</h4>
         <button
           type="button"
           class="btn-close"
@@ -116,7 +113,7 @@
     </div>
 
     <pre>{{ closeResult }}</pre>
-  </h1>
+  
  
 </div>
-<p>Fin project</p>
+

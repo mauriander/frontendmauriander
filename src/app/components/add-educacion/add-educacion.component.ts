@@ -123,7 +123,7 @@ get f(){return this.form.controls;}
 		//	this.form.reset();
 			this.mostrarForm = false;
 
-      alert("VALIDO id");
+     // alert("VALIDO id");
       console.log(this.form.value);
 		} else {
 			alert("form no valido   ");

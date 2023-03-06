@@ -67,8 +67,9 @@ export class ExperienceItemComponent implements OnInit {
 */
 
   onDeleteEx():void{
-    alert("deleteado presiono boton de emision");
+
     this.onDeleteExperience.emit(this.experiencia);
+
 
   }
 

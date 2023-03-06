@@ -104,7 +104,7 @@ constructor(private projectoService: ProjectService,private formBuilder: FormBui
      });
 
      this.form.patchValue({      persona:{id:this.perso.id}    });
-    alert("VALIDO id"+this.form.value.id+ "nombre que necesito que cambie formulario"+this.form.value.nombre);
+   // alert("VALIDO id"+this.form.value.id+ "nombre que necesito que cambie formulario"+this.form.value.nombre);
     console.log(this.form.value);
   
 		if (this.form.valid) {

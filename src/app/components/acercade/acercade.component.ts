@@ -329,6 +329,7 @@ descripcionacercade:String="";
     this.roles=this.tokenService.getAuthorities();   
     this.rol=this.roles[0];//user
     this.rol2=this.roles[1];//admin
+    
   if(this.rol2=="ROLE_ADMIN"){
     this.frol=true; }
     else{this.frol=false;} 
@@ -425,7 +426,9 @@ this.localidadService.verLocalidades().subscribe((res)=>{
   }
 
   toogleForm() {
+     
     this.mostrarForm = !this.mostrarForm;
+    this.onSessionacerca = !this.onSessionacerca;
   }
 
 

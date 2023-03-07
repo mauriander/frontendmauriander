@@ -36,9 +36,14 @@
     <h2>{{ experiencia?.nombre }}</h2>
     <h2>Puesto: {{ experiencia?.descripcion }}</h2>
 
-    <h3>
-      Fecha Inicio: {{ experiencia?.fechaIni }} - {{ experiencia?.fechaFin }}
-    </h3>
+    
+   
+     <h3>    {{ experiencia?.fechaIni | date : "MM" }}/{{
+      experiencia?.fechaIni | date : "yyyy"
+    }} -    {{ experiencia?.fechaFin   | date : "MM" }}/{{
+      experiencia?.fechaFin  | date : "yyyy"
+    }}</h3>
+   
     <h3>{{ experiencia?.actual }}</h3>
   </div>
 
@@ -133,4 +138,4 @@
   <p>{{ experiencia.persona }}</p>-->
 </div>
 
-<p>Fin experiencet</p>
+

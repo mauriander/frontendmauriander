@@ -19,14 +19,28 @@
                 [src]="urlimage"
               />
             </div>
-            
-            <div *ngIf="frol">
+
             <div
               class="imagen-col"
               *ngIf="!onSessionacerca2"
               style="padding-left: 60px"
-            >
-              <div *ngIf="onSessionacerca2"></div>
+            ></div>
+          </div>
+
+          <div *ngIf="frol">
+            <div style="padding-left: 60px" *ngIf="onSession">
+              <div *ngIf="onSessionacerca">
+                <button class="btn btn-primary" (click)="toogleForm()">
+                  <i class="fa fa-times"></i>
+                </button>
+              </div>
+              <div *ngIf="!onSessionacerca">
+                <button class="btn btn-primary" (click)="toogleForm()">
+                  <i class="fa fa-pen"></i>
+                </button>
+              </div>
+          </div>
+            <!--
               <button
                 [ngClass]="{
                   btn: true,
@@ -37,21 +51,13 @@
                 class="btn btn-primary"
                 (click)="toogleForm()"
               >
-                <i class="fa fa-pen"></i>
+                <i class=""></i>
               </button>
-            </div>
-
-            <div *ngIf="!onSessionacerca2">
-              
-            </div>
+              -->
           </div>
 
+         
 
-          </div>
-        </div>
-
-
-        
         <div *ngIf="!onSessionacerca2">
           <form
             [formGroup]="form"
@@ -82,7 +88,6 @@
             </button>
           </form>
         </div>
-        
 
         <!-- input tipo file archivo....
       
@@ -101,26 +106,29 @@
 
     <div class="contenedor-flexbox">
       <div class="btn-edit" oneclick="cambiar_paraffo()">
-        <h4 style="font-size: 30px; font-weight: bolder;">{{ apellido }} {{ nombre }}</h4>
-        
+        <br>
+        <h4 style="font-size: 30px; font-weight: bolder">
+          {{ apellido }} {{ nombre }}
+        </h4>
       </div>
+   
       <div *ngIf="frol">
-    <!-- INICIO 2 BOTON ACERCA DE-->
-    <div style="text-align: right; padding-right: 32px">
-      <button
-        [ngClass]="{
-          btn: true,
-          'btn-right': true
-        }"
-        class="btn btn-primary"      
-        (click)="open(content)"      >
-        <i class="fa fa-pen"></i>
-      </button>
+        <!-- INICIO 2 BOTON ACERCA DE-->
+        <div style="text-align: right; padding-right: 32px">
+          <button
+            [ngClass]="{
+              btn: true,
+              'btn-right': true
+            }"
+            class="btn btn-primary"
+            (click)="open(content)"
+          >
+            <i class="fa fa-pen"></i>
+          </button>
+        </div>
+        <!--FIN 2 BOTON ACERCA DE-->
+      </div>
     </div>
-    <!--FIN 2 BOTON ACERCA DE-->
-  </div>
-    
-  </div>
 
     <!-- Llegamos con el segundo editor con modal-->
 
@@ -143,14 +151,17 @@
           </h2>
         </div>
 
-        
         <div id="info-ubicacion">
           <span
             ><h2>{{ ubicacionl }} - {{ ubicacionp }}</h2></span
           >
         </div>
 
-        <span ><a style="font-size: 20px; color:deeppink;" href="{{ contact }}"  >Contactame</a></span>
+        <span
+          ><a style="font-size: 20px; color: deeppink" href="{{ contact }}"
+            >Contactame</a
+          ></span
+        >
       </div>
     </div>
 
@@ -160,39 +171,39 @@
       <h2>{{ descripcionacercade }}</h2>
 
       <div *ngIf="frol">
-    <!-- TERCER BOTON ACERCA DE-->
-    <div style="text-align: right; padding-right: 32px" *ngIf="onSession">
-      <div *ngIf="onSessionacerca">
-        <button class="btn btn-primary" (click)="clickme()">
-          <i class="fa fa-times"></i>
-        </button>
-      </div>
-      <div *ngIf="!onSessionacerca">
-        <button class="btn btn-primary" (click)="clickme()">
-          <i class="fa fa-pen"></i>
-        </button>
-      </div>
-      <form [formGroup]="forma" (ngSubmit)="onSubmit($event)">
-        <div class="mb-3">
-          <label class="form-label" for="edescripcion"></label>
-          <input
-            class="form-control"
-            type="text"
-            id="edescripcion"
-            formControlName="descripcion"
-            #myNameElem
-            size="flex"
-            style="display: none"
-            placeholder="dentro form"
-          />
+        <!-- TERCER BOTON ACERCA DE-->
+        <div style="text-align: right; padding-right: 32px" *ngIf="onSession">
+          <div *ngIf="onSessionacerca">
+            <button class="btn btn-primary" (click)="clickme()">
+              <i class="fa fa-times"></i>
+            </button>
+          </div>
+          <div *ngIf="!onSessionacerca">
+            <button class="btn btn-primary" (click)="clickme()">
+              <i class="fa fa-pen"></i>
+            </button>
+          </div>
         </div>
-      </form>
+      </div>
     </div>
-  </div>
-  </div>
-   
+    <form [formGroup]="forma" (ngSubmit)="onSubmit($event)">
+      <div class="mb-3">
+        <label class="form-label" for="edescripcion"></label>
+        <input
+          class="form-control"
+          type="text"
+          id="edescripcion"
+          formControlName="descripcion"
+          #myNameElem
+          size="flex"
+          style="display: none"
+          placeholder="Ingrese una nueva descripcion"
+        />
+      </div>
+    </form>
+
     <!-- FIN TERCER BOTON ACERCA DE-->
-    
+
     <!--
       <div>
         <input

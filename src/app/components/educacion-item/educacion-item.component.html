@@ -26,12 +26,16 @@
     </button>
   </div>
   <div>
-    <h1>Nombre {{ educacion?.nombre }}</h1>
+    <h1>{{ educacion?.nombre }}</h1>
 
     <h2>Nivel {{ educacion?.nivel }}</h2>
 
     <h3>Institucion {{ educacion?.institucion }}</h3>
-    <h3>Fecha Inicio: {{ educacion?.fechaini }} - {{ educacion?.fechafin }}</h3>
+    <h3>    {{ educacion?.fechaini  | date : "MM" }}/{{
+      educacion?.fechaini | date : "yyyy"
+    }} -    {{ educacion?.fechafin  | date : "MM" }}/{{
+      educacion?.fechafin | date : "yyyy"
+    }}</h3>
   </div>
   <ng-template #content let-modal>
     <div class="modal-header">
@@ -128,6 +132,4 @@
   <!--
   <app-edit-educacion (onEditEdu)="editEducacion($event)"></app-edit-educacion>    -->
 </div>
-<br />
-<hr />
-<p>Fin educacion item</p>
+
